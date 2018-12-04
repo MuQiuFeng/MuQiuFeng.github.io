@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>洛谷P4016 负载平衡问题 | 湫风酱的小屋</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="洛谷P4016 负载平衡问题 题目描述GG 公司有 nn 个沿铁路运输线环形排列的仓库，每个仓库存储的货物数量不等。如何用最少搬运量可以使 nn 个仓库的库存数量相同。搬运货物时，只能在相邻的仓库之间搬运。 输入输出格式输入格式：文件的第 11 行中有 11 个正整数 nn，表示有 nn 个仓库。 第 22 行中有 nn 个正整数，表示 nn 个仓库的库存量。 输出格式：输出最少搬运量。">
+  <meta name="description" content="洛谷P4016 负载平衡问题 题目描述$G$ 公司有 $n$ 个沿铁路运输线环形排列的仓库，每个仓库存储的货物数量不等。如何用最少搬运量可以使 $n$ 个仓库的库存数量相同。搬运货物时，只能在相邻的仓库之间搬运。 输入输出格式输入格式：文件的第 $1$ 行中有 $1$ 个正整数 $n$，表示有 $n$ 个仓库。 第 $2$ 行中有 $n$ 个正整数，表示 $n$ 个仓库的库存量。 输出格式：输出最">
 <meta name="keywords" content="网络流">
 <meta property="og:type" content="article">
 <meta property="og:title" content="洛谷P4016 负载平衡问题">
 <meta property="og:url" content="http://yoursite.com/2018/12/03/洛谷P4016-负载平衡问题/index.html">
 <meta property="og:site_name" content="湫风酱的小屋">
-<meta property="og:description" content="洛谷P4016 负载平衡问题 题目描述GG 公司有 nn 个沿铁路运输线环形排列的仓库，每个仓库存储的货物数量不等。如何用最少搬运量可以使 nn 个仓库的库存数量相同。搬运货物时，只能在相邻的仓库之间搬运。 输入输出格式输入格式：文件的第 11 行中有 11 个正整数 nn，表示有 nn 个仓库。 第 22 行中有 nn 个正整数，表示 nn 个仓库的库存量。 输出格式：输出最少搬运量。">
+<meta property="og:description" content="洛谷P4016 负载平衡问题 题目描述$G$ 公司有 $n$ 个沿铁路运输线环形排列的仓库，每个仓库存储的货物数量不等。如何用最少搬运量可以使 $n$ 个仓库的库存数量相同。搬运货物时，只能在相邻的仓库之间搬运。 输入输出格式输入格式：文件的第 $1$ 行中有 $1$ 个正整数 $n$，表示有 $n$ 个仓库。 第 $2$ 行中有 $n$ 个正整数，表示 $n$ 个仓库的库存量。 输出格式：输出最">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-04T05:21:35.580Z">
+<meta property="og:updated_time" content="2018-12-04T10:10:00.662Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="洛谷P4016 负载平衡问题">
-<meta name="twitter:description" content="洛谷P4016 负载平衡问题 题目描述GG 公司有 nn 个沿铁路运输线环形排列的仓库，每个仓库存储的货物数量不等。如何用最少搬运量可以使 nn 个仓库的库存数量相同。搬运货物时，只能在相邻的仓库之间搬运。 输入输出格式输入格式：文件的第 11 行中有 11 个正整数 nn，表示有 nn 个仓库。 第 22 行中有 nn 个正整数，表示 nn 个仓库的库存量。 输出格式：输出最少搬运量。">
+<meta name="twitter:description" content="洛谷P4016 负载平衡问题 题目描述$G$ 公司有 $n$ 个沿铁路运输线环形排列的仓库，每个仓库存储的货物数量不等。如何用最少搬运量可以使 $n$ 个仓库的库存数量相同。搬运货物时，只能在相邻的仓库之间搬运。 输入输出格式输入格式：文件的第 $1$ 行中有 $1$ 个正整数 $n$，表示有 $n$ 个仓库。 第 $2$ 行中有 $n$ 个正整数，表示 $n$ 个仓库的库存量。 输出格式：输出最">
   
     <link rel="alternative" href="/atom.xml" title="湫风酱的小屋" type="application/atom+xml">
   
@@ -180,9 +180,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><a href="https://www.luogu.org/problemnew/show/P4016" target="_blank" rel="noopener">洛谷P4016 负载平衡问题</a></p>
-<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>GG 公司有 nn 个沿铁路运输线环形排列的仓库，每个仓库存储的货物数量不等。如何用最少搬运量可以使 nn 个仓库的库存数量相同。搬运货物时，只能在相邻的仓库之间搬运。</p>
-<h2 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>文件的第 11 行中有 11 个正整数 nn，表示有 nn 个仓库。</p>
-<p>第 22 行中有 nn 个正整数，表示 nn 个仓库的库存量。</p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>$G$ 公司有 $n$ 个沿铁路运输线环形排列的仓库，每个仓库存储的货物数量不等。如何用最少搬运量可以使 $n$ 个仓库的库存数量相同。搬运货物时，只能在相邻的仓库之间搬运。</p>
+<h2 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>文件的第 $1$ 行中有 $1$ 个正整数 $n$，表示有 $n$ 个仓库。</p>
+<p>第 $2$ 行中有 $n$ 个正整数，表示 $n$ 个仓库的库存量。</p>
 <h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>输出最少搬运量。</p>
 <a id="more"></a>
 <h2 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入样例-1："><a href="#输入样例-1：" class="headerlink" title="输入样例#1："></a>输入样例#1：</h3><blockquote>
@@ -498,11 +498,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分块</a>
+                <a href="javascript:void(0)" class="js-tag color4">网络流</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">网络流</a>
+                <a href="javascript:void(0)" class="js-tag color3">分块</a>
               </li>
             
             <div class="clearfix"></div>
@@ -563,6 +563,10 @@ MathJax.Hub.Queue(function() {
           
             <li class="search-li">
               <a href="https://gongchen618.github.io/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>GCCCCCCCCC</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://hk-cnyali.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>HK</a>
             </li>
           
         </ul>
