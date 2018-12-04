@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>洛谷P3355 骑士共存问题 | Muq&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="洛谷P3355 骑士共存问题 题目描述在一个 n*n个方格的国际象棋棋盘上，马（骑士）可以攻击的棋盘方格如图所示。棋盘上某些方格设置了障碍，骑士不得进入 对于给定的 n*n 个方格的国际象棋棋盘和障碍标志，计算棋盘上最多可以放置多少个骑士，使得它们彼此互不攻击">
+  <meta name="description" content="洛谷P3355 骑士共存问题 题目描述在一个 n*n个方格的国际象棋棋盘上，马（骑士）可以攻击的棋盘方格如图所示。棋盘上某些方格设置了障碍，骑士不得进入 对于给定的 n*n 个方格的国际象棋棋盘和障碍标志，计算棋盘上最多可以放置多少个骑士，使得它们彼此互不攻击 输入输出格式输入格式：第一行有 2 个正整数n 和 m (1&amp;lt;=n&amp;lt;=200, 0&amp;lt;=m&amp;lt;n^2)，分别表示棋盘的">
 <meta name="keywords" content="网络流">
 <meta property="og:type" content="article">
 <meta property="og:title" content="洛谷P3355 骑士共存问题">
 <meta property="og:url" content="http://yoursite.com/2018/12/02/洛谷P3355-骑士共存问题/index.html">
 <meta property="og:site_name" content="Muq&#39;s Blog">
-<meta property="og:description" content="洛谷P3355 骑士共存问题 题目描述在一个 n*n个方格的国际象棋棋盘上，马（骑士）可以攻击的棋盘方格如图所示。棋盘上某些方格设置了障碍，骑士不得进入 对于给定的 n*n 个方格的国际象棋棋盘和障碍标志，计算棋盘上最多可以放置多少个骑士，使得它们彼此互不攻击">
+<meta property="og:description" content="洛谷P3355 骑士共存问题 题目描述在一个 n*n个方格的国际象棋棋盘上，马（骑士）可以攻击的棋盘方格如图所示。棋盘上某些方格设置了障碍，骑士不得进入 对于给定的 n*n 个方格的国际象棋棋盘和障碍标志，计算棋盘上最多可以放置多少个骑士，使得它们彼此互不攻击 输入输出格式输入格式：第一行有 2 个正整数n 和 m (1&amp;lt;=n&amp;lt;=200, 0&amp;lt;=m&amp;lt;n^2)，分别表示棋盘的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-04T05:17:49.200Z">
+<meta property="og:updated_time" content="2018-12-04T05:21:47.576Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="洛谷P3355 骑士共存问题">
-<meta name="twitter:description" content="洛谷P3355 骑士共存问题 题目描述在一个 n*n个方格的国际象棋棋盘上，马（骑士）可以攻击的棋盘方格如图所示。棋盘上某些方格设置了障碍，骑士不得进入 对于给定的 n*n 个方格的国际象棋棋盘和障碍标志，计算棋盘上最多可以放置多少个骑士，使得它们彼此互不攻击">
+<meta name="twitter:description" content="洛谷P3355 骑士共存问题 题目描述在一个 n*n个方格的国际象棋棋盘上，马（骑士）可以攻击的棋盘方格如图所示。棋盘上某些方格设置了障碍，骑士不得进入 对于给定的 n*n 个方格的国际象棋棋盘和障碍标志，计算棋盘上最多可以放置多少个骑士，使得它们彼此互不攻击 输入输出格式输入格式：第一行有 2 个正整数n 和 m (1&amp;lt;=n&amp;lt;=200, 0&amp;lt;=m&amp;lt;n^2)，分别表示棋盘的">
   
     <link rel="alternative" href="/atom.xml" title="Muq&#39;s Blog" type="application/atom+xml">
   
@@ -178,9 +178,9 @@
         <p><a href="https://www.luogu.org/problemnew/show/P3355" target="_blank" rel="noopener">洛谷P3355 骑士共存问题</a></p>
 <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>在一个 n*n个方格的国际象棋棋盘上，马（骑士）可以攻击的棋盘方格如图所示。棋盘上某些方格设置了障碍，骑士不得进入</p>
 <p>对于给定的 n*n 个方格的国际象棋棋盘和障碍标志，计算棋盘上最多可以放置多少个骑士，使得它们彼此互不攻击</p>
-<a id="more"></a>
 <h2 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>第一行有 2 个正整数n 和 m (1&lt;=n&lt;=200, 0&lt;=m&lt;n^2)，分别表示棋盘的大小和障碍数。接下来的 m 行给出障碍的位置。每行 2 个正整数，表示障碍的方格坐标。</p>
 <h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>将计算出的共存骑士数输出</p>
+<a id="more"></a>
 <h2 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入样例-1："><a href="#输入样例-1：" class="headerlink" title="输入样例#1："></a>输入样例#1：</h3><blockquote>
 <p>3 2<br>1 1<br>3 3</p>
 </blockquote>
@@ -314,11 +314,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/12/04/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/12/03/洛谷P4016-负载平衡问题/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Hello World
+          洛谷P4016 负载平衡问题
         
       </div>
     </a>
@@ -484,15 +484,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">分块 最大流</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">网络流</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络流 费用流</a>
               </li>
             
             <div class="clearfix"></div>

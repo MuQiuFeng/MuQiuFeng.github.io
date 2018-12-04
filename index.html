@@ -155,53 +155,6 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-洛谷P4016-负载平衡问题" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/04/洛谷P4016-负载平衡问题/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-CH-46A-磁力块" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -215,7 +168,7 @@
 
         
         <a href="/2018/12/04/CH-46A-磁力块/" class="archive-article-date">
-  	<time datetime="2018-12-04T05:14:22.041Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-04</time>
+  	<time datetime="2018-12-04T05:21:56.368Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-04</time>
 </a>
         
       </header>
@@ -224,6 +177,8 @@
       
         <p><a href="http://contest-hunter.org:83/contest/CH%20Round%20%2346%20-%20%E3%80%8CAdera%208%E3%80%8D%E6%9D%AFNOI%E6%A8%A1%E6%8B%9F%E8%B5%9B/%E7%A3%81%E5%8A%9B%E5%9D%97" target="_blank" rel="noopener">CH46A 磁力块</a></p>
 <h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>在一片广袤无垠的原野上，散落着N块磁石。每个磁石的性质可以用一个五元组(x,y,m,p,r)描述，其中x,y表示其坐标，m是磁石的质量，p是磁力，r是吸引半径。若磁石A与磁石B的距离不大于磁石A的吸引半径，并且磁石B的质量不大于磁石A的磁力，那么A可以吸引B。<br>小取酒带着一块自己的磁石L来到了这篇原野的(x0,y0)处，我们可以视为磁石L的坐标为(x0,y0)。小取酒手持磁石L并保持原地不动，所有可以被L吸引的磁石将会被吸引过来。在每个时刻，他可以选择更换任意一块自己已经获得的磁石（当然也可以是自己最初携带的L磁石）在(x0,y0)处吸引更多的磁石。小取酒想知道，他最多能获得多少块磁石呢？</p>
+<h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h3><p>第一行五个整数x0,y0,pL,rL,N，表示小取酒所在的位置，磁石L磁力、吸引半径和原野上散落磁石的个数。<br>接下来N行每行五个整数x,y,m,p,r，描述一块磁石的性质。</p>
+<h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h3><p>输出一个整数，表示最多可以获得的散落磁石个数（不包含最初携带的磁石L）。</p>
         
           <a class="article-more-a" href="/2018/12/04/CH-46A-磁力块/#more">more >></a>
         
@@ -366,6 +321,97 @@
 
 
   
+    <article id="post-洛谷P4016-负载平衡问题" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/03/洛谷P4016-负载平衡问题/">洛谷P4016 负载平衡问题</a>
+    </h1>
+  
+
+        
+        <a href="/2018/12/03/洛谷P4016-负载平衡问题/" class="archive-article-date">
+  	<time datetime="2018-12-03T14:35:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://www.luogu.org/problemnew/show/P4016" target="_blank" rel="noopener">洛谷P4016 负载平衡问题</a></p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>GG 公司有 nn 个沿铁路运输线环形排列的仓库，每个仓库存储的货物数量不等。如何用最少搬运量可以使 nn 个仓库的库存数量相同。搬运货物时，只能在相邻的仓库之间搬运。</p>
+<h2 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>文件的第 11 行中有 11 个正整数 nn，表示有 nn 个仓库。</p>
+<p>第 22 行中有 nn 个正整数，表示 nn 个仓库的库存量。</p>
+<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>输出最少搬运量。</p>
+        
+          <a class="article-more-a" href="/2018/12/03/洛谷P4016-负载平衡问题/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">网络流</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Network-flows//" class="article-tag-list-link color4">Network-flows</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/12/03/洛谷P4016-负载平衡问题/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-洛谷P3355-骑士共存问题" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -389,6 +435,8 @@
         <p><a href="https://www.luogu.org/problemnew/show/P3355" target="_blank" rel="noopener">洛谷P3355 骑士共存问题</a></p>
 <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>在一个 n*n个方格的国际象棋棋盘上，马（骑士）可以攻击的棋盘方格如图所示。棋盘上某些方格设置了障碍，骑士不得进入</p>
 <p>对于给定的 n*n 个方格的国际象棋棋盘和障碍标志，计算棋盘上最多可以放置多少个骑士，使得它们彼此互不攻击</p>
+<h2 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>第一行有 2 个正整数n 和 m (1&lt;=n&lt;=200, 0&lt;=m&lt;n^2)，分别表示棋盘的大小和障碍数。接下来的 m 行给出障碍的位置。每行 2 个正整数，表示障碍的方格坐标。</p>
+<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>将计算出的共存骑士数输出</p>
         
           <a class="article-more-a" href="/2018/12/02/洛谷P3355-骑士共存问题/#more">more >></a>
         
@@ -573,15 +621,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">分块 最大流</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">网络流</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络流 费用流</a>
               </li>
             
             <div class="clearfix"></div>
