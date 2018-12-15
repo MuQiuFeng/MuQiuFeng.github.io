@@ -148,6 +148,79 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-洛谷P3121-审查黄金Censoring-Gold" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/15/洛谷P3121-审查黄金Censoring-Gold/">洛谷P3121 [USACO15FEB]审查（黄金）Censoring (Gold)</a>
+    </h1>
+  
+
+        
+        <a href="/2018/12/15/洛谷P3121-审查黄金Censoring-Gold/" class="archive-article-date">
+  	<time datetime="2018-12-15T13:46:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://www.luogu.org/problemnew/show/P3121" target="_blank" rel="noopener">洛谷P3121 [USACO15FEB]审查（黄金）Censoring (Gold)</a></p>
+<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>Farmer John has purchased a subscription to Good Hooveskeeping magazine for his cows, so they have plenty of material to read while waiting around in the barn during milking sessions. Unfortunately, the latest issue contains a rather inappropriate article on how to cook the perfect steak, which FJ would rather his cows not see (clearly, the magazine is in need of better editorial oversight).</p>
+<p>FJ has taken all of the text from the magazine to create the string S of length at most 10^5 characters. He has a list of censored words t_1 … t_N that he wishes to delete from S. To do so Farmer John finds the earliest occurrence of a censored word in S (having the earliest start index) and removes that instance of the word from S. He then repeats the process again, deleting the earliest occurrence of a censored word from S, repeating until there are no more occurrences of censored words in S. Note that the deletion of one censored word might create a new occurrence of a censored word that didn’t exist before.</p>
+<p>Farmer John notes that the censored words have the property that no censored word appears as a substring of another censored word. In particular this means the censored word with earliest index in S is uniquely defined.</p>
+<p>Please help FJ determine the final contents of S after censoring is complete.</p>
+<p>FJ把杂志上所有的文章摘抄了下来并把它变成了一个长度不超过10^5的字符串S。他有一个包含n个单词的列表，列表里的n个单词记为t_1…t_N。他希望从S中删除这些单词。</p>
+<p>FJ每次在S中找到最早出现的列表中的单词(最早出现指该单词的开始位置最小)，然后从S中删除这个单词。他重复这个操作直到S中没有列表里的单词为止。注意删除一个单词后可能会导致S中出现另一个列表中的单词</p>
+<p>FJ注意到列表中的单词不会出现一个单词是另一个单词子串的情况，这意味着每个列表中的单词在S中出现的开始位置是互不相同的</p>
+<p>请帮助FJ完成这些操作并输出最后的S</p>
+        
+          <a class="article-more-a" href="/2018/12/15/洛谷P3121-审查黄金Censoring-Gold/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/12/15/洛谷P3121-审查黄金Censoring-Gold/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-AC自动机" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -1127,6 +1200,10 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">分块</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">AC自动机</a>
               </li>
              
@@ -1136,10 +1213,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Splay</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分块</a>
               </li>
              
               <li class="article-tag-list-item">
