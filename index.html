@@ -148,6 +148,106 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-AC自动机加强版" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/16/AC自动机加强版/">洛谷P3796 【模板】AC自动机（加强版）</a>
+    </h1>
+  
+
+        
+        <a href="/2018/12/16/AC自动机加强版/" class="archive-article-date">
+  	<time datetime="2018-12-16T04:02:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://www.luogu.org/problemnew/show/P3796" target="_blank" rel="noopener">洛谷P3796 【模板】AC自动机（加强版</a></p>
+<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>有N个由小写字母组成的模式串以及一个文本串T。每个模式串可能会在文本串中出现多次。你需要找出哪些模式串在文本串T中出现的次数最多。</p>
+<h3 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h3><h4 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h4><p>输入含多组数据。</p>
+<p>每组数据的第一行为一个正整数N，表示共有N个模式串，1≤N≤150。</p>
+<p>接下去N行，每行一个长度小于等于70的模式串。下一行是一个长度小于等于1e6的文本串T。</p>
+<p>输入结束标志为N=0。</p>
+<h4 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h4><p>对于每组数据，第一行输出模式串最多出现的次数，接下去若干行每行输出一个出现次数最多的模式串，按输入顺序排列。</p>
+<h3 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h3><h4 id="输入样例-1："><a href="#输入样例-1：" class="headerlink" title="输入样例#1："></a>输入样例#1：</h4><blockquote>
+<p>2<br>aba<br>bab<br>ababababac<br>6<br>beta<br>alpha<br>haha<br>delta<br>dede<br>tata<br>dedeltalphahahahototatalpha<br>0</p>
+</blockquote>
+<h4 id="输出样例-1："><a href="#输出样例-1：" class="headerlink" title="输出样例#1："></a>输出样例#1：</h4><blockquote>
+<p>4<br>aba<br>2<br>alpha<br>haha</p>
+</blockquote>
+<hr>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>板子上面加点东西就好了。具体实现请看代码，注释都在里面了。</p>
+<hr>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Code by muq</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">File</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    freopen(<span class="string">"muq.in.txt"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> cnt, n;</span><br><span class="line"><span class="built_in">string</span> s[<span class="number">100010</span>];</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">trie</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> fail, c[<span class="number">26</span>], end;<span class="comment">//fail指针，当前节点的每个儿子的点的编号，当前节点代表的输入中的第几个匹配串</span></span><br><span class="line">&#125; ac[<span class="number">100010</span>];</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">result</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> num, pos;<span class="comment">//匹配上的数量，在输入中的顺序</span></span><br><span class="line">&#125; ans[<span class="number">100010</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(result a, result b)</span> </span>&#123;<span class="comment">//按题目要求对结果进行排序</span></span><br><span class="line">    <span class="keyword">if</span>(a.num == b.num)</span><br><span class="line">        <span class="keyword">return</span> a.pos &lt; b.pos;</span><br><span class="line">    <span class="keyword">return</span> a.num &gt; b.num;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">clear</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;<span class="comment">//清空当前节点信息</span></span><br><span class="line">    <span class="built_in">memset</span>(ac[x].c, <span class="number">0</span>, <span class="keyword">sizeof</span>(ac[x].c));</span><br><span class="line">    ac[x].fail = ac[x].end = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="built_in">string</span> a, <span class="keyword">int</span> num)</span> </span>&#123;<span class="comment">//插入一个匹配串</span></span><br><span class="line">    <span class="keyword">int</span> len = a.size(), now = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; ++i) &#123;</span><br><span class="line">        <span class="keyword">int</span> to = a[i] - <span class="string">'a'</span>;<span class="comment">//儿子</span></span><br><span class="line">        <span class="keyword">if</span>(!ac[now].c[to]) &#123;<span class="comment">//如果之前没有这个儿子就新建一个</span></span><br><span class="line">            ac[now].c[to] = ++cnt;</span><br><span class="line">            clear(cnt);</span><br><span class="line">        &#125;</span><br><span class="line">        now = ac[now].c[to];<span class="comment">//当前节点不断往下跳</span></span><br><span class="line">    &#125;</span><br><span class="line">    ac[now].end = num;<span class="comment">//当前节点/对应的匹配串/的输入时的顺序</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">build</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">queue</span> &lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span>; ++i) &#123;<span class="comment">//首先找到根节点的所有儿子</span></span><br><span class="line">        <span class="keyword">if</span>(ac[<span class="number">0</span>].c[i]) &#123;</span><br><span class="line">            ac[ac[<span class="number">0</span>].c[i]].fail = <span class="number">0</span>;<span class="comment">//儿子的fail指针都指向根节点（即为0）</span></span><br><span class="line">            q.push(ac[<span class="number">0</span>].c[i]);<span class="comment">//扔进BFS队列中</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(!q.empty()) &#123;</span><br><span class="line">        <span class="keyword">int</span> u = q.front();</span><br><span class="line">        q.pop();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span>; ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span>(ac[u].c[i]) &#123;<span class="comment">//若当前节点有这个儿子</span></span><br><span class="line">                ac[ac[u].c[i]].fail = ac[ac[u].fail].c[i];<span class="comment">//则子节点的fail指针指向/父节点的fail指针/指向的节点/的这个儿子</span></span><br><span class="line">                q.push(ac[u].c[i]);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span><span class="comment">//否则</span></span><br><span class="line">                ac[u].c[i] = ac[ac[u].fail].c[i];<span class="comment">//将父节点的儿子直接复制成/父节点的fail指针/指向的节点/的这个儿子</span></span><br><span class="line">                <span class="comment">//对于AC自动机算法来说是不对的，但是可以证明它的正确性，算是一个优化</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">query</span><span class="params">(<span class="built_in">string</span> a)</span> </span>&#123;<span class="comment">//对一个模式串进行查询</span></span><br><span class="line">    <span class="keyword">int</span> len = a.size(), now = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; ++i) &#123;</span><br><span class="line">        <span class="keyword">int</span> to = a[i] - <span class="string">'a'</span>;</span><br><span class="line">        now = ac[now].c[to];<span class="comment">//一直往下走</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = now; j; j = ac[j].fail) &#123;</span><br><span class="line">            ++ans[ac[j].end].num;<span class="comment">//对应的匹配串匹配到的值+1</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//File();</span></span><br><span class="line">    ios::sync_with_stdio(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">        <span class="keyword">if</span>(!n)</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        cnt = <span class="number">0</span>;</span><br><span class="line">        clear(<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; s[i];</span><br><span class="line">            ans[i].num = <span class="number">0</span>;</span><br><span class="line">            ans[i].pos = i;</span><br><span class="line">            insert(s[i], i);</span><br><span class="line">        &#125;</span><br><span class="line">        ac[<span class="number">0</span>].fail = <span class="number">0</span>;</span><br><span class="line">        build();<span class="comment">//建立fail指针</span></span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; s[<span class="number">0</span>];<span class="comment">//模式串（废物利用）</span></span><br><span class="line">        query(s[<span class="number">0</span>]);<span class="comment">//对模式串进行查询</span></span><br><span class="line">        sort(&amp;ans[<span class="number">1</span>], &amp;ans[n + <span class="number">1</span>], cmp);<span class="comment">//对各个匹配串按题目要求进行排序</span></span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; ans[<span class="number">1</span>].num &lt;&lt; <span class="built_in">endl</span> &lt;&lt; s[ans[<span class="number">1</span>].pos] &lt;&lt; <span class="built_in">endl</span>;<span class="comment">//输出最多的出现次数以及对应的匹配串</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span>(ans[i].num == ans[i - <span class="number">1</span>].num)<span class="comment">//如果还有</span></span><br><span class="line">                <span class="built_in">cout</span> &lt;&lt; s[ans[i].pos] &lt;&lt; <span class="built_in">endl</span>;<span class="comment">//输出即可</span></span><br><span class="line">            <span class="keyword">else</span><span class="comment">//否则跳出循环</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;<span class="comment">//结束，愉快AC啦！~\(≧▽≦)/~</span></span><br><span class="line">&#125;<span class="comment">//written by muq after reading and understanding the solution of @yybyyb</span></span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">AC自动机</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Aho-Corasick-automaton//" class="article-tag-list-link color3">Aho-Corasick automaton</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/12/16/AC自动机加强版/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-洛谷P3121-审查黄金Censoring-Gold" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -1013,101 +1113,10 @@
 
 
   
-    <article id="post-洛谷P3355-骑士共存问题" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/02/洛谷P3355-骑士共存问题/">洛谷P3355 骑士共存问题</a>
-    </h1>
-  
-
-        
-        <a href="/2018/12/02/洛谷P3355-骑士共存问题/" class="archive-article-date">
-  	<time datetime="2018-12-02T14:18:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://www.luogu.org/problemnew/show/P3355" target="_blank" rel="noopener">洛谷P3355 骑士共存问题</a></p>
-<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>在一个 n*n个方格的国际象棋棋盘上，马（骑士）可以攻击的棋盘方格如图所示。棋盘上某些方格设置了障碍，骑士不得进入</p>
-<p>对于给定的 n*n 个方格的国际象棋棋盘和障碍标志，计算棋盘上最多可以放置多少个骑士，使得它们彼此互不攻击</p>
-<h2 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>第一行有 2 个正整数n 和 m (1&lt;=n&lt;=200, 0&lt;=m&lt;n^2)，分别表示棋盘的大小和障碍数。接下来的 m 行给出障碍的位置。每行 2 个正整数，表示障碍的方格坐标。</p>
-<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>将计算出的共存骑士数输出</p>
-        
-          <a class="article-more-a" href="/2018/12/02/洛谷P3355-骑士共存问题/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">网络流</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">最大流</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Network-flows//" class="article-tag-list-link color4">Network-flows</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/02/洛谷P3355-骑士共存问题/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 
 
@@ -1226,6 +1235,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">分块</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">平衡树</a>
               </li>
              
@@ -1234,19 +1247,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分块</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">网络流</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">最大流</a>
+                <a href="javascript:void(0)" class="js-tag color4">费用流</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">费用流</a>
+                <a href="javascript:void(0)" class="js-tag color4">最大流</a>
               </li>
             
             <div class="clearfix"></div>
