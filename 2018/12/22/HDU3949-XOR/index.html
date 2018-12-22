@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>HDU3949-XOR | 湫风酱的小屋</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="题目给出ｎ个数，可以选择任意个异或，求排名第$k$小的数。  思路用高斯消元求出$a_1,a_2,…,a_n$构成的异或空间的基。不妨设这个基由整数$b_1,b_2,…,b_t$构成，且有$b_1&amp;gt;b_2&amp;gt;…&amp;gt;b_t$。从基底中选取若干个整数，显然有$2^t$中取法，即$t$维异或空间中有$2^t$个整数与这$2^t$中取法一一对应。 我们把询问中给出的$k-1$进行二进制分解（">
+  <meta name="description" content="题目给出ｎ个数，可以选择任意个异或，求排名第$k$小的数。">
 <meta name="keywords" content="高斯消元，二进制拆分">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HDU3949-XOR">
 <meta property="og:url" content="http://yoursite.com/2018/12/22/HDU3949-XOR/index.html">
 <meta property="og:site_name" content="湫风酱的小屋">
-<meta property="og:description" content="题目给出ｎ个数，可以选择任意个异或，求排名第$k$小的数。  思路用高斯消元求出$a_1,a_2,…,a_n$构成的异或空间的基。不妨设这个基由整数$b_1,b_2,…,b_t$构成，且有$b_1&amp;gt;b_2&amp;gt;…&amp;gt;b_t$。从基底中选取若干个整数，显然有$2^t$中取法，即$t$维异或空间中有$2^t$个整数与这$2^t$中取法一一对应。 我们把询问中给出的$k-1$进行二进制分解（">
+<meta property="og:description" content="题目给出ｎ个数，可以选择任意个异或，求排名第$k$小的数。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-22T03:15:17.033Z">
+<meta property="og:updated_time" content="2018-12-22T03:16:01.934Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HDU3949-XOR">
-<meta name="twitter:description" content="题目给出ｎ个数，可以选择任意个异或，求排名第$k$小的数。  思路用高斯消元求出$a_1,a_2,…,a_n$构成的异或空间的基。不妨设这个基由整数$b_1,b_2,…,b_t$构成，且有$b_1&amp;gt;b_2&amp;gt;…&amp;gt;b_t$。从基底中选取若干个整数，显然有$2^t$中取法，即$t$维异或空间中有$2^t$个整数与这$2^t$中取法一一对应。 我们把询问中给出的$k-1$进行二进制分解（">
+<meta name="twitter:description" content="题目给出ｎ个数，可以选择任意个异或，求排名第$k$小的数。">
   
     <link rel="alternative" href="/atom.xml" title="湫风酱的小屋" type="application/atom+xml">
   
@@ -172,6 +172,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给出ｎ个数，可以选择任意个异或，求排名第$k$小的数。</p>
+<a id="more"></a>
 <hr>
 <h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>用高斯消元求出$a_1,a_2,…,a_n$构成的异或空间的基。不妨设这个基由整数$b_1,b_2,…,b_t$构成，且有$b_1&gt;b_2&gt;…&gt;b_t$。从基底中选取若干个整数，显然有$2^t$中取法，即$t$维异或空间中有$2^t$个整数与这$2^t$中取法一一对应。</p>
 <p>我们把询问中给出的$k-1$进行二进制分解（减一是因为将最小的数定义为第0小），如果$k-1$的第$j$$(0≤j&lt;t)$位等于1，就选取$b_{t-j}$，最后把所有选出的$b$异或起来，就得到了答案。特别的，若$k&gt;2^t$，则无解。</p>
