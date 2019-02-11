@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>洛谷P3265 [JLOI2015]装备购买 | 湫风酱的小屋</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="洛谷P3265 [JLOI2015]装备购买 题目描述脸哥最近在玩一款神奇的游戏，这个游戏里有$n$件装备，每件装备有$m$个属性，用向量$zi$ 表示 $(1 &amp;lt;= i &amp;lt;= n; 1 &amp;lt;= j &amp;lt;= m)$，每个装备需要花费 $c_i$，现在脸哥想买一些装备，但是脸哥很穷，所以总是盘算着怎样才能花尽量少的钱买尽量多的装备。 对于脸哥来说，如果一件装备的属性能用购买的其他">
+  <meta name="description" content="洛谷P3265 [JLOI2015]装备购买 题目描述脸哥最近在玩一款神奇的游戏，这个游戏里有$n$件装备，每件装备有$m$个属性，用向量$z[i]$($a_j$,…..,$a_m$) 表示 ($1$ &amp;lt;= $i$ &amp;lt;= $n$;$1$ &amp;lt;= $j$ &amp;lt;= $m$)，每个装备需要花费$c_i$，现在脸哥想买一些装备，但是脸哥很穷，所以总是盘算着怎样才能花尽量少的钱买尽量多的">
 <meta name="keywords" content="高斯消元">
 <meta property="og:type" content="article">
 <meta property="og:title" content="洛谷P3265 [JLOI2015]装备购买">
 <meta property="og:url" content="http://yoursite.com/2018/12/22/洛谷P3265-装备购买/index.html">
 <meta property="og:site_name" content="湫风酱的小屋">
-<meta property="og:description" content="洛谷P3265 [JLOI2015]装备购买 题目描述脸哥最近在玩一款神奇的游戏，这个游戏里有$n$件装备，每件装备有$m$个属性，用向量$zi$ 表示 $(1 &amp;lt;= i &amp;lt;= n; 1 &amp;lt;= j &amp;lt;= m)$，每个装备需要花费 $c_i$，现在脸哥想买一些装备，但是脸哥很穷，所以总是盘算着怎样才能花尽量少的钱买尽量多的装备。 对于脸哥来说，如果一件装备的属性能用购买的其他">
+<meta property="og:description" content="洛谷P3265 [JLOI2015]装备购买 题目描述脸哥最近在玩一款神奇的游戏，这个游戏里有$n$件装备，每件装备有$m$个属性，用向量$z[i]$($a_j$,…..,$a_m$) 表示 ($1$ &amp;lt;= $i$ &amp;lt;= $n$;$1$ &amp;lt;= $j$ &amp;lt;= $m$)，每个装备需要花费$c_i$，现在脸哥想买一些装备，但是脸哥很穷，所以总是盘算着怎样才能花尽量少的钱买尽量多的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-22T02:11:51.272Z">
+<meta property="og:updated_time" content="2019-02-11T08:52:08.629Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="洛谷P3265 [JLOI2015]装备购买">
-<meta name="twitter:description" content="洛谷P3265 [JLOI2015]装备购买 题目描述脸哥最近在玩一款神奇的游戏，这个游戏里有$n$件装备，每件装备有$m$个属性，用向量$zi$ 表示 $(1 &amp;lt;= i &amp;lt;= n; 1 &amp;lt;= j &amp;lt;= m)$，每个装备需要花费 $c_i$，现在脸哥想买一些装备，但是脸哥很穷，所以总是盘算着怎样才能花尽量少的钱买尽量多的装备。 对于脸哥来说，如果一件装备的属性能用购买的其他">
+<meta name="twitter:description" content="洛谷P3265 [JLOI2015]装备购买 题目描述脸哥最近在玩一款神奇的游戏，这个游戏里有$n$件装备，每件装备有$m$个属性，用向量$z[i]$($a_j$,…..,$a_m$) 表示 ($1$ &amp;lt;= $i$ &amp;lt;= $n$;$1$ &amp;lt;= $j$ &amp;lt;= $m$)，每个装备需要花费$c_i$，现在脸哥想买一些装备，但是脸哥很穷，所以总是盘算着怎样才能花尽量少的钱买尽量多的">
   
     <link rel="alternative" href="/atom.xml" title="湫风酱的小屋" type="application/atom+xml">
   
@@ -172,8 +172,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><a href="https://www.luogu.org/problemnew/show/P3265" target="_blank" rel="noopener">洛谷P3265 [JLOI2015]装备购买</a></p>
-<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>脸哥最近在玩一款神奇的游戏，这个游戏里有$n$件装备，每件装备有$m$个属性，用向量$z<a href="a_j ,.....,a_m">i</a>$ 表示 $(1 &lt;= i &lt;= n; 1 &lt;= j &lt;= m)$，每个装备需要花费 $c_i$，现在脸哥想买一些装备，但是脸哥很穷，所以总是盘算着怎样才能花尽量少的钱买尽量多的装备。</p>
-<p>对于脸哥来说，如果一件装备的属性能用购买的其他装备组合出（也就是说脸哥可以利用手上的这些装备组合出这件装备的效果），那么这件装备就没有买的必要了。严格的定义是，如果脸哥买了 $z[i_1],…..z[i_p]$这 p 件装备，那么对于任意待决定的$z[h]$，不存在$b_1,….,b_p$使得 $b_1z[i_1] + … + b_pz[i_p] = z[h]$（$b$ 是实数），那么脸哥就会买$z[h]$，否则$z[h]$对脸哥就是无用的了，自然不必购买。</p>
+<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>脸哥最近在玩一款神奇的游戏，这个游戏里有$n$件装备，每件装备有$m$个属性，用向量$z[i]$($a_j$,…..,$a_m$) 表示 ($1$ &lt;= $i$ &lt;= $n$;$1$ &lt;= $j$ &lt;= $m$)，每个装备需要花费$c_i$，现在脸哥想买一些装备，但是脸哥很穷，所以总是盘算着怎样才能花尽量少的钱买尽量多的装备。</p>
+<p>对于脸哥来说，如果一件装备的属性能用购买的其他装备组合出（也就是说脸哥可以利用手上的这些装备组合出这件装备的效果），那么这件装备就没有买的必要了。严格的定义是，如果脸哥买了 $z[i_1],…..z[i_p]$这$p$件装备，那么对于任意待决定的$z[h]$，不存在$b_1,….,b_p$使得 $b_1z[i_1] + … + b_pz[i_p] = z[h]$（$b$ 是实数），那么脸哥就会买$z[h]$，否则$z[h]$对脸哥就是无用的了，自然不必购买。</p>
 <p>举个例子,$z[1] =(1; 2; 3);z[2] =(3; 4; 5);z[h] =(2; 3; 4)，b_1 =\frac{1}{2}，b_2 =\frac{1}{2}，$就有$b_1z[1] + b_2z[2] = z[h]$，那么如果脸哥买了$z[1]$和$z[2]$就不会再买$z[h]$了。脸哥想要在买下最多数量的装备的情况下花最少的钱，你能帮他算一下吗？</p>
 <a id="more"></a>
 <h3 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h3><h4 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h4><p>第一行两个数$n$,$m$。<br>接下来 $n$ 行，每行$m$个数，其中第$i$行描述装备$i$的各项属性值。<br>接下来一行$n$个数，其中$c_i$表示购买第$i$件装备的花费。</p>
@@ -482,10 +482,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分块</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">高斯消元</a>
               </li>
              
@@ -495,6 +491,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">搜索</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">分块</a>
               </li>
              
               <li class="article-tag-list-item">
