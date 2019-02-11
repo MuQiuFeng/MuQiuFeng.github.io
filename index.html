@@ -148,6 +148,117 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-洛谷P2444-POI2000-病毒" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/11/洛谷P2444-POI2000-病毒/">洛谷P2444 [POI2000]病毒</a>
+    </h1>
+  
+
+        
+        <a href="/2019/02/11/洛谷P2444-POI2000-病毒/" class="archive-article-date">
+  	<time datetime="2019-02-11T14:22:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://www.luogu.org/problemnew/show/P2444" target="_blank" rel="noopener">洛谷P2444 [POI2000]病毒</a></p>
+<hr>
+<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>二进制病毒审查委员会最近发现了如下的规律：某些确定的二进制串是病毒的代码。如果某段代码中不存在任何一段病毒代码，那么我们就称这段代码是安全的。现在委员会已经找出了所有的病毒代码段，试问，是否存在一个无限长的安全的二进制代码。</p>
+<h5 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h5><p>例如如果{011, 11, 00000}为病毒代码段，那么一个可能的无限长安全代码就是010101…。如果{01, 11, 000000}为病毒代码段，那么就不存在一个无限长的安全代码。</p>
+<h5 id="任务："><a href="#任务：" class="headerlink" title="任务："></a>任务：</h5><p>请写一个程序：</p>
+<p>读入病毒代码，判断是否存在一个无限长的安全代码。</p>
+<h3 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h3><h4 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h4><p>输入文件第一行包括一个整数n(n≤2000)，表示病毒代码段的数目。以下的n行每一行都包括一个非空的01字符串——就是一个病毒代码段。所有病毒代码段的总长度不超过30000。</p>
+<h4 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h4><p>输出文件的第一行输出一个单词：</p>
+<p>TAK——假如存在这样的代码；</p>
+<p>NIE——如果不存在。</p>
+<h3 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h3><h4 id="输入样例-1："><a href="#输入样例-1：" class="headerlink" title="输入样例#1："></a>输入样例#1：</h4><blockquote>
+<p>3<br>01<br>11<br>00000</p>
+</blockquote>
+<h4 id="输出样例-1："><a href="#输出样例-1：" class="headerlink" title="输出样例#1："></a>输出样例#1：</h4><blockquote>
+<p>NIE</p>
+</blockquote>
+<hr>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>建立一个Trie图，并在上面进行DFS，若仅通过安全节点能找到一个环，则证明存在无限长的安全代码，否则不存在，详见代码。</p>
+<hr>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Code by muq</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> io0 ios::sync_with_stdio</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">File</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    freopen(<span class="string">"muq.in.txt"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">    <span class="comment">//freopen("muq.out.txt", "w", stdout);</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">3e4</span> + <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> vis[maxn], f[maxn];</span><br><span class="line"><span class="built_in">string</span> s;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="built_in">queue</span> &lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> t[<span class="number">2</span>], f;</span><br><span class="line">    <span class="keyword">bool</span> c;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">AcAutomaton</span> &#123;</span></span><br><span class="line">    node a[maxn];</span><br><span class="line">    <span class="keyword">int</span> tot = <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;<span class="comment">//插入新字符串</span></span><br><span class="line">        <span class="keyword">int</span> len = s.size(), nd = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; ++i) &#123;</span><br><span class="line">            <span class="keyword">int</span> to = s[i] - <span class="number">48</span>;</span><br><span class="line">            <span class="keyword">if</span>(!a[nd].t[to]) &#123;</span><br><span class="line">                a[nd].t[to] = ++tot;<span class="comment">//目标节点不存在则新建</span></span><br><span class="line">                nd = tot;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                nd = a[nd].t[to];<span class="comment">//目标节点存在则直接转移</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        a[nd].c = <span class="number">1</span>;<span class="comment">//给病毒段末尾标上标记</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">getfail</span><span class="params">()</span> </span>&#123;<span class="comment">//获取fail指针</span></span><br><span class="line">        <span class="keyword">if</span>(a[<span class="number">0</span>].t[<span class="number">0</span>] &gt; <span class="number">0</span>) <span class="comment">//根节点若有左儿子则扔进队列</span></span><br><span class="line">            q.push(a[<span class="number">0</span>].t[<span class="number">0</span>]);</span><br><span class="line">        <span class="keyword">if</span>(a[<span class="number">0</span>].t[<span class="number">1</span>] &gt; <span class="number">0</span>) <span class="comment">//右儿子同理</span></span><br><span class="line">            q.push(a[<span class="number">0</span>].t[<span class="number">1</span>]);</span><br><span class="line">        <span class="keyword">while</span>(!q.empty()) &#123;</span><br><span class="line">            <span class="keyword">int</span> nd = q.front(); q.pop();<span class="comment">//取出队头</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">1</span>; ++i) &#123;<span class="comment">//对左右儿子分别进行判断</span></span><br><span class="line">                <span class="keyword">if</span>(a[nd].t[i] &gt; <span class="number">0</span>) &#123;<span class="comment">//如果存在此儿子</span></span><br><span class="line">                    q.push(a[nd].t[i]);<span class="comment">//则将此儿子扔进队列</span></span><br><span class="line">                    <span class="keyword">int</span> td = a[nd].f;<span class="comment">//当前节点fail指针所指向的点</span></span><br><span class="line">                    <span class="keyword">while</span>(td &gt; <span class="number">0</span> <span class="keyword">and</span> a[td].t[i] &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">                        <span class="comment">//当本节点fail指针不指向根节点并且其左/右（由i决定）儿子存在时</span></span><br><span class="line">                        <span class="comment">//一直沿着fail指针跳</span></span><br><span class="line">                        td = a[td].f;<span class="comment">//这样找到的要不就是根节点，要不就是最长匹配后缀段</span></span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">if</span>(a[td].t[i] &lt;= <span class="number">0</span>) &#123;<span class="comment">//此时如果此节点的儿子&lt;=0时</span></span><br><span class="line">                        a[a[nd].t[i]].f = <span class="number">0</span>;<span class="comment">//将当前指针的左/右儿子的fail指针指向根节点</span></span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span> &#123;</span><br><span class="line">                        a[a[nd].t[i]].f = a[td].t[i];</span><br><span class="line">                        <span class="keyword">if</span>(a[a[td].t[i]].c) &#123;</span><br><span class="line">                            a[a[nd].t[i]].c = <span class="number">1</span>;<span class="comment">//由于自己的后缀行不通，因此自己也是危险的</span></span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    a[nd].t[i] = a[a[nd].f].t[i];<span class="comment">//否则自己的当前儿子指向自己fail指针所指向的对应的儿子</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125; A;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> now)</span> </span>&#123;</span><br><span class="line">    vis[now] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">1</span>; ++i) &#123;</span><br><span class="line">        <span class="keyword">if</span>(vis[A.a[now].t[i]]) &#123;<span class="comment">//vis表示当前这一次dfs有没有找到这一个节点，有则说明有环的存在</span></span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">"TAK\n"</span>;</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">0</span>);<span class="comment">//直接结束程序</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(!A.a[A.a[now].t[i]].c <span class="keyword">and</span> !f[A.a[now].t[i]]) &#123;<span class="comment">//否则，当此节点不为病毒末尾段且之前的所有dfs过程中未被搜到时</span></span><br><span class="line">            f[A.a[now].t[i]] = <span class="number">1</span>;<span class="comment">//标记搜到</span></span><br><span class="line">            dfs(A.a[now].t[i]);<span class="comment">//继续dfs</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    vis[now] = <span class="number">0</span>;<span class="comment">//回溯</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">    io0;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; s;</span><br><span class="line">        A.insert(s);<span class="comment">//向自动机中插入病毒片断</span></span><br><span class="line">    &#125;</span><br><span class="line">    A.getfail();<span class="comment">//获取fail指针</span></span><br><span class="line">    dfs(<span class="number">0</span>);<span class="comment">//从根节点开始dfs</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"NIE\n"</span>;<span class="comment">//如果进行到了这里说明自动机上不存在环，则输出NIE</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;<span class="comment">//输出，愉快AC</span></span><br><span class="line">&#125;<span class="comment">//written by muq after reading and understanding the solution of @Sooke dalao</span></span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">AC自动机</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">搜索</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/AC-automaton//" class="article-tag-list-link color3">AC automaton</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/AC-automaton/search//" class="article-tag-list-link color2">search</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/02/11/洛谷P2444-POI2000-病毒/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-POJ1625-Censored" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -530,96 +641,6 @@
 
 
   
-    <article id="post-洛谷P3265-装备购买" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/22/洛谷P3265-装备购买/">洛谷P3265 [JLOI2015]装备购买</a>
-    </h1>
-  
-
-        
-        <a href="/2018/12/22/洛谷P3265-装备购买/" class="archive-article-date">
-  	<time datetime="2018-12-22T01:21:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://www.luogu.org/problemnew/show/P3265" target="_blank" rel="noopener">洛谷P3265 [JLOI2015]装备购买</a></p>
-<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>脸哥最近在玩一款神奇的游戏，这个游戏里有$n$件装备，每件装备有$m$个属性，用向量$z[i]$($a_j$,…..,$a_m$) 表示 ($1$ &lt;= $i$ &lt;= $n$;$1$ &lt;= $j$ &lt;= $m$)，每个装备需要花费$c_i$，现在脸哥想买一些装备，但是脸哥很穷，所以总是盘算着怎样才能花尽量少的钱买尽量多的装备。</p>
-<p>对于脸哥来说，如果一件装备的属性能用购买的其他装备组合出（也就是说脸哥可以利用手上的这些装备组合出这件装备的效果），那么这件装备就没有买的必要了。严格的定义是，如果脸哥买了 $z[i_1],…..z[i_p]$这$p$件装备，那么对于任意待决定的$z[h]$，不存在$b_1,….,b_p$使得 $b_1z[i_1] + … + b_pz[i_p] = z[h]$（$b$ 是实数），那么脸哥就会买$z[h]$，否则$z[h]$对脸哥就是无用的了，自然不必购买。</p>
-<p>举个例子,$z[1] =(1; 2; 3);z[2] =(3; 4; 5);z[h] =(2; 3; 4)，b_1 =\frac{1}{2}，b_2 =\frac{1}{2}，$就有$b_1z[1] + b_2z[2] = z[h]$，那么如果脸哥买了$z[1]$和$z[2]$就不会再买$z[h]$了。脸哥想要在买下最多数量的装备的情况下花最少的钱，你能帮他算一下吗？</p>
-        
-          <a class="article-more-a" href="/2018/12/22/洛谷P3265-装备购买/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">高斯消元</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Gaussian-Elimination//" class="article-tag-list-link color1">Gaussian Elimination</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/22/洛谷P3265-装备购买/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -742,15 +763,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分块</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">高斯消元</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">二进制拆分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">分块</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -774,19 +795,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">莫队</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">高精度</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">网络流</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">最大流</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">莫队</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">高精度</a>
               </li>
              
               <li class="article-tag-list-item">
