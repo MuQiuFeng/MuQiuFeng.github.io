@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>湫风酱的小屋</title>
+  <title>洛谷P3809 【模板】后缀排序 | 湫风酱的小屋</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="湫风酱的小屋">
-<meta property="og:url" content="http://yoursite.com/page/3/index.html">
+  <meta name="description" content="洛谷P3809 【模板】后缀排序 题目背景这是一道模板题。 题目描述读入一个长度为$n$的由大小写英文字母或数字组成的字符串，请把这个字符串的所有非空后缀按字典序从小到大排序，然后按顺序输出后缀的第一个字符在原串中的位置。位置编号为$1$到$n$。 输入输出格式输入格式：一行一个长度为$n$的仅包含大小写英文字母或数字的字符串。 输出格式：一行，共$n$个整数，表示答案。 输入输出样例输入样例：">
+<meta name="keywords" content="后缀数组">
+<meta property="og:type" content="article">
+<meta property="og:title" content="洛谷P3809 【模板】后缀排序">
+<meta property="og:url" content="http://yoursite.com/2019/02/12/洛谷P3809-【模板】后缀排序/index.html">
 <meta property="og:site_name" content="湫风酱的小屋">
+<meta property="og:description" content="洛谷P3809 【模板】后缀排序 题目背景这是一道模板题。 题目描述读入一个长度为$n$的由大小写英文字母或数字组成的字符串，请把这个字符串的所有非空后缀按字典序从小到大排序，然后按顺序输出后缀的第一个字符在原串中的位置。位置编号为$1$到$n$。 输入输出格式输入格式：一行一个长度为$n$的仅包含大小写英文字母或数字的字符串。 输出格式：一行，共$n$个整数，表示答案。 输入输出样例输入样例：">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-02-12T13:39:56.646Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="湫风酱的小屋">
+<meta name="twitter:title" content="洛谷P3809 【模板】后缀排序">
+<meta name="twitter:description" content="洛谷P3809 【模板】后缀排序 题目背景这是一道模板题。 题目描述读入一个长度为$n$的由大小写英文字母或数字组成的字符串，请把这个字符串的所有非空后缀按字典序从小到大排序，然后按顺序输出后缀的第一个字符在原串中的位置。位置编号为$1$到$n$。 输入输出格式输入格式：一行一个长度为$n$的仅包含大小写英文字母或数字的字符串。 输出格式：一行，共$n$个整数，表示答案。 输入输出样例输入样例：">
   
     <link rel="alternative" href="/atom.xml" title="湫风酱的小屋" type="application/atom+xml">
   
@@ -146,37 +151,71 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-洛谷P3041-视频游戏的连击" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+            <article id="post-洛谷P3809-【模板】后缀排序" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/16/洛谷P3041-视频游戏的连击/">洛谷P3041 [USACO12JAN]视频游戏的连击Video Game Combos</a>
+    <h1 class="article-title" itemprop="name">
+      洛谷P3809 【模板】后缀排序
     </h1>
   
 
         
-        <a href="/2018/12/16/洛谷P3041-视频游戏的连击/" class="archive-article-date">
-  	<time datetime="2018-12-16T12:14:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-16</time>
+        <a href="/2019/02/12/洛谷P3809-【模板】后缀排序/" class="archive-article-date">
+  	<time datetime="2019-02-12T13:23:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="https://www.luogu.org/problemnew/show/P3041" target="_blank" rel="noopener">洛谷P3041 [USACO12JAN]视频游戏的连击Video Game Combos</a></p>
-<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>贝西在玩一款游戏，该游戏只有三个技能键 “A”“B”“C”可用，但这些键可用形成N种(1 &lt;= N&lt;= 20)特定的组合技。第i个组合技用一个长度为1到15的字符串S_i表示。</p>
-<p>当贝西输入的一个字符序列和一个组合技匹配的时候，他将获得1分。特殊的，他输入的一个字符序列有可能同时和若干个组合技匹配，比如N=3时，3种组合技分别为”ABA”, “CB”, 和”ABACB”,若贝西输入”ABACB”，他将获得3分。</p>
-<p>若贝西输入恰好K (1 &lt;= K &lt;= 1,000)个字符，他最多能获得多少分？</p>
-        
-          <a class="article-more-a" href="/2018/12/16/洛谷P3041-视频游戏的连击/#more">more >></a>
-        
+        <p><a href="https://www.luogu.org/problemnew/show/P3809" target="_blank" rel="noopener">洛谷P3809 【模板】后缀排序</a></p>
+<h3 id="题目背景"><a href="#题目背景" class="headerlink" title="题目背景"></a>题目背景</h3><p>这是一道模板题。</p>
+<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>读入一个长度为$n$的由大小写英文字母或数字组成的字符串，请把这个字符串的所有非空后缀按字典序从小到大排序，然后按顺序输出后缀的第一个字符在原串中的位置。位置编号为$1$到$n$。</p>
+<h3 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h3><h4 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h4><p>一行一个长度为$n$的仅包含大小写英文字母或数字的字符串。</p>
+<h4 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h4><p>一行，共$n$个整数，表示答案。</p>
+<h3 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h3><h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><blockquote>
+<p>ababa</p>
+</blockquote>
+<h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><blockquote>
+<p>5 3 1 4 2</p>
+</blockquote>
+<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>$n &lt;= 10^6$</p>
+<hr>
+<h3 id="后缀数组（Suffix-Array）"><a href="#后缀数组（Suffix-Array）" class="headerlink" title="后缀数组（Suffix Array）"></a>后缀数组（Suffix Array）</h3><blockquote>
+<p>在字符串处理当中，后缀树和后缀数组都是非常有力的工具。其实后缀数组是后缀树的一个非常精巧的替代品，它比后缀树容易编程实现，能够实现后缀树的很多功能而时间复杂度也不太逊色，并且，它比后缀树所占用的空间小很多。可以说，在信息学竞赛中后缀数组比后缀树要更为实用。（摘自百度百科）</p>
+</blockquote>
+<p>由于笔者技艺不精，自认为无法讲好<strong>后缀数组</strong>这一重要知识点，可能会导致一些新学SA的OIer误入歧途，故在这里推荐一片自认为讲的好的博客，还请各位见谅。</p>
+<p><a href="https://www.cnblogs.com/victorique/p/8480093.html" target="_blank" rel="noopener">~victorique~巨佬的后缀数组讲解</a></p>
+<hr>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>了解了SA是什么东西之后，我们就可以AC这道模板题了。具体实现细节见代码。</p>
+<hr>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Code by muq</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ls o &lt;&lt; 1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rs o &lt;&lt; 1 | 1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> lson o &lt;&lt; 1, l, mid</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rson o &lt;&lt; 1 | 1, mid + 1, r</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> inf 2147483647</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> io0 ios::sync_with_stdio(0)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">muq</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    freopen(<span class="string">"muq.in.txt"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e6</span> + <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, tp, m, dn, ans;</span><br><span class="line"><span class="keyword">char</span> str[maxn];</span><br><span class="line"><span class="keyword">int</span> s[maxn], pos;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> SA &#123;</span><br><span class="line">	<span class="keyword">int</span> sa[maxn], rk[maxn], h[maxn];</span><br><span class="line">	<span class="comment">//sa[i]表排名为i的字符串的开始位置是几；</span></span><br><span class="line">	<span class="comment">//rk[i]表示以i开始的后缀字符串的排名（亦为第一关键词）；</span></span><br><span class="line">	<span class="comment">//定义h[i]= LCP(suf(sa[i]), suf(sa[i - 1]))，表示排名第i的字符串与排名第i-1的字符串的最长公共前缀的长度</span></span><br><span class="line">	<span class="keyword">int</span> sec[maxn], ht[maxn];<span class="comment">//sec[i]表示以i开始的后缀字符串的第二关键词；ht为桶</span></span><br><span class="line">	<span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j, <span class="keyword">int</span> w)</span> </span>&#123;<span class="comment">//判断两个二元组(suf(i), suf(i + w))与((suf(j), suf(j + w)))是否相同</span></span><br><span class="line">		<span class="keyword">return</span> (sec[i] == sec[j] <span class="keyword">and</span> sec[i + w] == sec[j + w]);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Rsort</span><span class="params">()</span> </span>&#123;<span class="comment">//基数排序</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= m; ++i)<span class="comment">//清空桶</span></span><br><span class="line">			ht[i] = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)<span class="comment">//桶排序</span></span><br><span class="line">			++ht[rk[sec[i]]];</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; ++i)<span class="comment">//记下前缀和</span></span><br><span class="line">			ht[i] += ht[i - <span class="number">1</span>];</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = n; i &gt;= <span class="number">1</span>; --i)<span class="comment">//记下当前字符串的排名</span></span><br><span class="line">			sa[ht[rk[sec[i]]]--] = sec[i];</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">getSA</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">			rk[i] = s[i], sec[i] = i;<span class="comment">//初始值rk[i]用当前字符本身的ASCII码代替，之后基数排序过程中会更新；sec[i]的初始值即为当前节点的位置</span></span><br><span class="line">		Rsort();<span class="comment">//基数排序</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> num = <span class="number">1</span>, w = <span class="number">1</span>; num &lt; n; w &lt;&lt;= <span class="number">1</span>, m = num) &#123;</span><br><span class="line">			<span class="comment">//num:不同二元组的个数；</span></span><br><span class="line">			<span class="comment">//w:倍增法中一次一个元素隔多远取那个元素为第二关键词；</span></span><br><span class="line">			<span class="comment">//m = num原因：m为桶的大小，因为num是记录当前排序有多少不重复二元组，又因为rk[i]值域为1~num的所有整数，故m = num</span></span><br><span class="line">			num = <span class="number">0</span>;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i = n - w + <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">				sec[++num] = i;<span class="comment">//首先n-w+1~n这一段为空，即第二关键词为0，而sec数组中元素要保证不降序排列，故先把0扔进去</span></span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">				<span class="keyword">if</span>(sa[i] &gt; w)<span class="comment">//若当前字符串的排名大于w说明该字符串不会有第二关键词，而是为其它字符串的第二关键词，故扔进去</span></span><br><span class="line">					sec[++num] = sa[i] - w;</span><br><span class="line">			Rsort();<span class="comment">//再次基数排序</span></span><br><span class="line">			swap(rk, sec);<span class="comment">//交换第一关键词与第二关键词，方便下一次循环使用</span></span><br><span class="line">			rk[sa[<span class="number">1</span>]] = num = <span class="number">1</span>;<span class="comment">//更新num与rk[sa[1]](因为rk[sa[i]] = i)</span></span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; ++i)</span><br><span class="line">				rk[sa[i]] = cmp(sa[i], sa[i - <span class="number">1</span>], w) ? num : ++num;<span class="comment">//判断两个二元组相不相同，统计不同二元组个数</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">getheight</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> len = <span class="number">0</span>;<span class="comment">//两个后缀字符串的最长公共前缀的长度</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">			<span class="keyword">int</span> j = sa[rk[i] - <span class="number">1</span>];<span class="comment">//因为h[rk[i]] = LCP(suf(sa[rk[i]]), suf(sa[rk[i] - 1])),故我们取出后者</span></span><br><span class="line">			<span class="keyword">if</span>(len)</span><br><span class="line">				--len;</span><br><span class="line">			<span class="keyword">while</span>(s[i + len] == s[j + len])<span class="comment">//不断向后匹配</span></span><br><span class="line">				++len;</span><br><span class="line">			h[rk[i]] = len;<span class="comment">//更新</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> SA::sa;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">	muq();</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%s"</span>, str + <span class="number">1</span>);</span><br><span class="line">	n = <span class="built_in">strlen</span>(str + <span class="number">1</span>);</span><br><span class="line">	m = <span class="number">122</span>;<span class="comment">//由于本题只有数字和大小写字母且ASCII('z') = 122,故元素初始值赋为122</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">		s[i] = str[i];<span class="comment">//将s数组初始值赋为当前位置上的字符</span></span><br><span class="line">	SA::getSA();<span class="comment">//求SA数组</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d "</span>, sa[i]);<span class="comment">//输出即可</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -187,23 +226,23 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">AC自动机</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">后缀数组</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/suffix-array//" class="article-tag-list-link color3">suffix array</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">DP</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Aho-Corasick-automaton//" class="article-tag-list-link color3">Aho-Corasick automaton</a>
+        			<a href="/categories/suffix-array/模板//" class="article-tag-list-link color3">模板</a>
         		</li>
       		
 		</ul>
@@ -211,16 +250,75 @@
 
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/16/洛谷P3041-视频游戏的连击/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/02/12/洛谷P3809-【模板】后缀排序/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2019/02/12/Hust1016-Black-White-Tree/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hust1016 Black-White Tree</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -235,413 +333,32 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-AC自动机加强版" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/16/AC自动机加强版/">洛谷P3796 【模板】AC自动机（加强版）</a>
-    </h1>
-  
-
-        
-        <a href="/2018/12/16/AC自动机加强版/" class="archive-article-date">
-  	<time datetime="2018-12-16T04:02:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://www.luogu.org/problemnew/show/P3796" target="_blank" rel="noopener">洛谷P3796 【模板】AC自动机（加强版)</a></p>
-<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>有N个由小写字母组成的模式串以及一个文本串T。每个模式串可能会在文本串中出现多次。你需要找出哪些模式串在文本串T中出现的次数最多。</p>
-<h3 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h3><h4 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h4><p>输入含多组数据。</p>
-<p>每组数据的第一行为一个正整数N，表示共有N个模式串，1≤N≤150。</p>
-<p>接下去N行，每行一个长度小于等于70的模式串。下一行是一个长度小于等于1e6的文本串T。</p>
-<p>输入结束标志为N=0。</p>
-<h4 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h4><p>对于每组数据，第一行输出模式串最多出现的次数，接下去若干行每行输出一个出现次数最多的模式串，按输入顺序排列。</p>
-        
-          <a class="article-more-a" href="/2018/12/16/AC自动机加强版/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">AC自动机</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Aho-Corasick-automaton//" class="article-tag-list-link color3">Aho-Corasick automaton</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/16/AC自动机加强版/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目背景"><span class="toc-number">1.</span> <span class="toc-text">题目背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#题目描述"><span class="toc-number">2.</span> <span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#输入输出格式"><span class="toc-number">3.</span> <span class="toc-text">输入输出格式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#输入格式："><span class="toc-number">3.1.</span> <span class="toc-text">输入格式：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#输出格式："><span class="toc-number">3.2.</span> <span class="toc-text">输出格式：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#输入输出样例"><span class="toc-number">4.</span> <span class="toc-text">输入输出样例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#输入样例："><span class="toc-number">4.1.</span> <span class="toc-text">输入样例：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#输出样例："><span class="toc-number">4.2.</span> <span class="toc-text">输出样例：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#说明"><span class="toc-number">5.</span> <span class="toc-text">说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#后缀数组（Suffix-Array）"><span class="toc-number">6.</span> <span class="toc-text">后缀数组（Suffix Array）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">7.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码"><span class="toc-number">8.</span> <span class="toc-text">代码</span></a></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-洛谷P3121-审查黄金Censoring-Gold" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/15/洛谷P3121-审查黄金Censoring-Gold/">洛谷P3121 [USACO15FEB]审查（黄金）Censoring (Gold)</a>
-    </h1>
-  
-
-        
-        <a href="/2018/12/15/洛谷P3121-审查黄金Censoring-Gold/" class="archive-article-date">
-  	<time datetime="2018-12-15T13:46:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://www.luogu.org/problemnew/show/P3121" target="_blank" rel="noopener">洛谷P3121 [USACO15FEB]审查（黄金）Censoring (Gold)</a></p>
-<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>Farmer John has purchased a subscription to Good Hooveskeeping magazine for his cows, so they have plenty of material to read while waiting around in the barn during milking sessions. Unfortunately, the latest issue contains a rather inappropriate article on how to cook the perfect steak, which FJ would rather his cows not see (clearly, the magazine is in need of better editorial oversight).</p>
-<p>FJ has taken all of the text from the magazine to create the string S of length at most 10^5 characters. He has a list of censored words t_1 … t_N that he wishes to delete from S. To do so Farmer John finds the earliest occurrence of a censored word in S (having the earliest start index) and removes that instance of the word from S. He then repeats the process again, deleting the earliest occurrence of a censored word from S, repeating until there are no more occurrences of censored words in S. Note that the deletion of one censored word might create a new occurrence of a censored word that didn’t exist before.</p>
-<p>Farmer John notes that the censored words have the property that no censored word appears as a substring of another censored word. In particular this means the censored word with earliest index in S is uniquely defined.</p>
-<p>Please help FJ determine the final contents of S after censoring is complete.</p>
-<p>FJ把杂志上所有的文章摘抄了下来并把它变成了一个长度不超过10^5的字符串S。他有一个包含n个单词的列表，列表里的n个单词记为t_1…t_N。他希望从S中删除这些单词。</p>
-<p>FJ每次在S中找到最早出现的列表中的单词(最早出现指该单词的开始位置最小)，然后从S中删除这个单词。他重复这个操作直到S中没有列表里的单词为止。注意删除一个单词后可能会导致S中出现另一个列表中的单词</p>
-<p>FJ注意到列表中的单词不会出现一个单词是另一个单词子串的情况，这意味着每个列表中的单词在S中出现的开始位置是互不相同的</p>
-<p>请帮助FJ完成这些操作并输出最后的S</p>
-        
-          <a class="article-more-a" href="/2018/12/15/洛谷P3121-审查黄金Censoring-Gold/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">AC自动机</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Aho-Corasick-Automaton//" class="article-tag-list-link color3">Aho_Corasick_Automaton</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/15/洛谷P3121-审查黄金Censoring-Gold/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-AC自动机" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/15/AC自动机/">洛谷P3808 【模板】AC自动机（简单版）</a>
-    </h1>
-  
-
-        
-        <a href="/2018/12/15/AC自动机/" class="archive-article-date">
-  	<time datetime="2018-12-15T01:26:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="题目背景"><a href="#题目背景" class="headerlink" title="题目背景"></a>题目背景</h3><p>这是一道简单的AC自动机模板题。</p>
-<p>用于检测正确性以及算法常数。</p>
-<p>为了防止卡OJ，在保证正确的基础上只有两组数据，请不要恶意提交。</p>
-<p>管理员提示：本题数据内有重复的单词，且重复单词应该计算多次，请各位注意</p>
-<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定n个模式串和1个文本串，求有多少个模式串在文本串里出现过。</p>
-<h3 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h3><h4 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h4><p>第一行一个n，表示模式串个数；</p>
-<p>下面n行每行一个模式串；</p>
-<p>下面一行一个文本串。</p>
-<h4 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h4><p>一个数表示答案</p>
-        
-          <a class="article-more-a" href="/2018/12/15/AC自动机/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">AC自动机</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Aho-Corasick-automaton//" class="article-tag-list-link color3">Aho-Corasick automaton</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/15/AC自动机/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-洛谷P1801-黑匣子" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/13/洛谷P1801-黑匣子/">洛谷P1801 黑匣子</a>
-    </h1>
-  
-
-        
-        <a href="/2018/12/13/洛谷P1801-黑匣子/" class="archive-article-date">
-  	<time datetime="2018-12-13T13:57:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://www.luogu.org/problemnew/show/P1801" target="_blank" rel="noopener">洛谷P1801 黑匣子</a></p>
-<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>Black Box是一种原始的数据库。它可以储存一个整数数组，还有一个特别的变量i。最开始的时候Black Box是空的．而i等于0。这个Black Box要处理一串命令。</p>
-<p>命令只有两种：</p>
-<ol>
-<li><p>ADD(x):把x元素放进BlackBox;</p>
-</li>
-<li><p>GET:i加1，然后输出Blackhox中第i小的数。</p>
-</li>
-</ol>
-<p>记住：第i小的数，就是Black Box里的数的按从小到大的顺序排序后的第i个元素。例如：</p>
-<p>我们来演示一下一个有11个命令的命令串。（如下图所示）</p>
-<p><img src="https://s1.ax1x.com/2018/12/13/FNUsij.jpg" alt="FNUsij.jpg"></p>
-<p>现在要求找出对于给定的命令串的最好的处理方法。ADD和GET命令分别最多200000个。现在用两个整数数组来表示命令串：</p>
-<ol>
-<li><p>A(1)，A(2)，…A(M)：一串将要被放进Black Box的元素。每个数都是绝对值不超过2000000000的整数，M$200000。例如上面的例子就是A=(3，1，一4，2，8，-1000，2)。</p>
-</li>
-<li><p>u(1)，u(2)，…u(N)：表示第u(j)个元素被放进了Black Box里后就出现一个GET命令。例如上面的例子中u=(l，2，6，6)。输入数据不用判错。</p>
-</li>
-</ol>
-<h3 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h3><h4 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h4><p>第一行，两个整数，M，N。</p>
-<p>第二行，M个整数，表示A(l)……A(M)。</p>
-<p>第三行，N个整数，表示u(l)…u(N)。</p>
-<h4 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h4><p>输出Black Box根据命令串所得出的输出串，一个数字一行。</p>
-        
-          <a class="article-more-a" href="/2018/12/13/洛谷P1801-黑匣子/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">平衡树</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Splay</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Balanced-Binary-Tree//" class="article-tag-list-link color1">Balanced Binary Tree</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/13/洛谷P1801-黑匣子/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -664,8 +381,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
