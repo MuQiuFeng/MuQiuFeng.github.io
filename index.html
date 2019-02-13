@@ -148,6 +148,108 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-洛谷P3455-POI2007-ZAP-Queries" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/13/洛谷P3455-POI2007-ZAP-Queries/">洛谷P3455 [POI2007]ZAP-Queries</a>
+    </h1>
+  
+
+        
+        <a href="/2019/02/13/洛谷P3455-POI2007-ZAP-Queries/" class="archive-article-date">
+  	<time datetime="2019-02-13T08:29:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://www.luogu.org/problemnew/show/P3455" target="_blank" rel="noopener">洛谷P3455 [POI2007]ZAP-Queries</a></p>
+<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>$FGD$正在破解一段密码，他需要回答很多类似的问题：对于给定的整数$a,b$和$d$，有多少正整数对$x,y$，满足$x&lt;=a,y&lt;=b$，并且$gcd(x,y)=d$。作为$FGD$的同学，$FGD$希望得到你的帮助。</p>
+<h3 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h3><h4 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h4><p>The first line of the standard input contains one integer $n$ $(1≤n≤50,000)$,denoting the number of queries.</p>
+<p>The following $n$ lines contain three integers each: $a$, $b$ and $d$$(1≤d≤a,b≤50,000)$, separated by single spaces.</p>
+<p>Each triplet denotes a single query.</p>
+<h4 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h4><p>Your programme should write $n$ lines to the standard output. The $i^{th}$ line should contain a single integer: the answer to the $i^{th}$ query from the standard input.</p>
+<h3 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h3><h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><blockquote>
+<p>2<br>4 5 2<br>6 4 3</p>
+</blockquote>
+<p>####输出样例： </p>
+<blockquote>
+<p>3<br>2</p>
+</blockquote>
+<hr>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p><strong>令题目中的$x = d$，且$b &gt;= a$，并且以下除号均向下取整。</strong></p>
+<p>题目中要求的是：<br>$\sum_{i = 1}^{a}\sum_{j = 1}^{b}[gcd(i, j) = x]$<br>一看这里的$x$我们就很烦所以先把它干掉<br>$\sum_{i = 1}^{\frac{a}{x}}\sum_{j = 1}^{\frac{b}{x}}[gcd(i, j) = 1]$<br>根据莫比乌斯函数中$[x = 1] = \sum_{d|x}μ(d)$，我们将$gcd(i, j)$转换一下<br>$\sum_{i = 1}^{\frac{a}{x}}\sum_{j = 1}^{\frac{b}{x}}\sum_{d|gcd(i, j)}μ(d)$<br>我们再把$d$的和号改成枚举$d$的形式<br>$\sum_{i = 1}^{\frac{a}{x}}\sum_{j = 1}^{\frac{b}{x}}\sum_{d = 1}^{\frac{a}{x}}μ(d)·[d|gcd(i, j)]$<br>将$\sum_{d = 1}^{\frac{a}{x}}μ(d)$提前<br>$\sum_{d = 1}^{\frac{a}{x}}μ(d)\sum_{i = 1}^{\frac{a}{x}}\sum_{j = 1}^{\frac{b}{x}}[d|gcd(i, j)]$<br><del>然后可以看出后面的$\sum_{i = 1}^{\frac{a}{x}}\sum_{j = 1}^{\frac{b}{x}}[d|gcd(i, j)]$是废话</del><br>若要$[d|gcd(i, j)] = 1$，则$i, j$都必须为$d$的倍数<br>$\sum_{d = 1}^{\frac{a}{x}}μ(d)\frac{a}{xd}\frac{b}{xd}$<br>接下来就简单了，本题就只用枚举$d$即可解决。<br>前面的$μ(d)$可以用<strong>整除分块</strong>的方法利用<strong>前缀和</strong>计算。</p>
+<p>细节见代码。</p>
+<hr>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Code by muq</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ls o &lt;&lt; 1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rs o &lt;&lt; 1 | 1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> lson o &lt;&lt; 1, l, mid</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rson o &lt;&lt; 1 | 1, mid + 1, r</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> inf 2147483647</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> io0 ios::sync_with_stdio(0)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">muq</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    freopen(<span class="string">"muq.in.txt"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">5e4</span> + <span class="number">10</span>, maxm = <span class="number">5e4</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> tot, prime[maxn], mu[maxn];</span><br><span class="line">ll pre_mu[maxn];</span><br><span class="line"><span class="keyword">bool</span> noprime[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">getp</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">	noprime[<span class="number">1</span>] = <span class="number">1</span>; mu[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">		<span class="keyword">if</span>(!noprime[i])<span class="comment">//若没有标记不是质数</span></span><br><span class="line">			prime[++tot] = i, mu[i] = <span class="number">-1</span>;<span class="comment">//标记其为质数，并且根据μ函数的性质对于任意一个质数p，有μ(p) = -1</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= tot <span class="keyword">and</span> i * prime[j] &lt;= n; ++j) &#123;<span class="comment">//线性筛</span></span><br><span class="line">			noprime[i * prime[j]] = <span class="number">1</span>;<span class="comment">//标记不是质数</span></span><br><span class="line">			<span class="keyword">if</span>(!(i % prime[j])) &#123;<span class="comment">//如果prime[j]为i的因子</span></span><br><span class="line">				mu[i * prime[j]] = <span class="number">0</span>;<span class="comment">//则根据μ函数的性质可以得出μ(i * prime[j]) = 0</span></span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			mu[i * prime[j]] = mu[i] * mu[prime[j]];<span class="comment">//由于μ函数是积性函数，由积性函数的性质f(ab) = f(a) * f(b)得来</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">	muq();</span><br><span class="line">	getp(maxm);<span class="comment">//线性筛</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= maxm; ++i)<span class="comment">//μ函数前缀和</span></span><br><span class="line">		pre_mu[i] = pre_mu[i - <span class="number">1</span>] + mu[i];</span><br><span class="line">	<span class="keyword">int</span> T;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;T);</span><br><span class="line">	<span class="keyword">while</span>(T--) &#123;</span><br><span class="line">		ll a, b, x, ans = <span class="number">0</span>;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%lld%lld%lld"</span>, &amp;a, &amp;b, &amp;x);</span><br><span class="line">		<span class="keyword">if</span>(a &gt; b)</span><br><span class="line">			swap(a, b);</span><br><span class="line">		a /= x, b /= x;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> l = <span class="number">1</span>, r; l &lt;= a; l = r + <span class="number">1</span>) &#123;</span><br><span class="line">			r = min(a / (a / l), b / (b / l));<span class="comment">//整除分块</span></span><br><span class="line">			ans += (pre_mu[r] - pre_mu[l - <span class="number">1</span>]) * (a / l) * (b / l);<span class="comment">//由公式</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, ans);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">莫比乌斯反演</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Mobius-inversion-formula//" class="article-tag-list-link color5">Möbius inversion formula</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/02/13/洛谷P3455-POI2007-ZAP-Queries/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-SP694-DISUBTER-Distinct-Substrings" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -547,111 +649,6 @@
 
 
   
-    <article id="post-POJ1625-Censored" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/11/POJ1625-Censored/">POJ1625 Censored!</a>
-    </h1>
-  
-
-        
-        <a href="/2019/02/11/POJ1625-Censored/" class="archive-article-date">
-  	<time datetime="2019-02-11T13:24:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>The alphabet of Freeland consists of exactly $N$ letters. Each sentence of Freeland language (also known as Freish) consists of exactly $M$ letters without word breaks. So, there exist exactly $N^M$ different Freish sentences. </p>
-<p>But after recent election of Mr. Grass Jr. as Freeland president some words offending him were declared unprintable and all sentences containing at least one of them were forbidden. The sentence $S$ contains a word $W$ if $W$ is a substring of $S$ i.e. exists such $k &gt;= 1$ that $S[k] = W[1], S[k+1] = W[2], …,S[k+len(W)-1] = W[len(W)]$, where $k+len(W)-1 &lt;= M$ and $len(W)$ denotes length of $W$. <strong>Everyone who uses a forbidden sentence is to be put to jail for 10 years.</strong></p>
-<p>Find out how many different sentences can be used now by freelanders without risk to be put to jail for using it. </p>
-<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>The first line of the input file contains three integer numbers: $N$ – the number of letters in Freish alphabet, $M$ – the length of all Freish sentences and $P$ – the number of forbidden words ($1 &lt;= N &lt;= 50$, $1 &lt;= M &lt;= 50$, $0 &lt;= P &lt;= 10$). </p>
-<p>The second line contains exactly $N$ different characters – the letters of the Freish alphabet (all with ASCII code greater than 32). </p>
-<p>The following $P$ lines contain forbidden words, each not longer than $min(M, 10)$ characters, all containing only letters of Freish alphabet. </p>
-<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>Output the only integer number – the number of different sentences freelanders can safely use.</p>
-        
-          <a class="article-more-a" href="/2019/02/11/POJ1625-Censored/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">AC自动机</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">DP</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">高精度</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/AC-automaton//" class="article-tag-list-link color3">AC automaton</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/AC-automaton/DP//" class="article-tag-list-link color3">DP</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/02/11/POJ1625-Censored/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -774,7 +771,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分块</a>
+                <a href="javascript:void(0)" class="js-tag color4">线段树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">搜索</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">后缀数组</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -786,27 +791,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">线段树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">搜索</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">DP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">高精度</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">后缀数组</a>
+                <a href="javascript:void(0)" class="js-tag color3">分块</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">容斥原理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">DP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -826,11 +819,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">费用流</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">莫比乌斯反演</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">莫队</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">费用流</a>
+                <a href="javascript:void(0)" class="js-tag color4">高精度</a>
               </li>
             
             <div class="clearfix"></div>
