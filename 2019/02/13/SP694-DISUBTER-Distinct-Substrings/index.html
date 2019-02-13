@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>SP694 DISUBTER-Distinct Substrings | 湫风酱的小屋</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="SP694 DISUBTER-Distinct Substrings 如果上面进不去的话戳我 题目描述给定一个字符串，求该字符串含有的本质不同的子串数量。 输入输出格式输入格式第一行一个整数$T$表示数据组数$(T≤20)$。每组数据包含一个长度$len≤1000$的字符串。 输出格式对于每组数据输出一个数，表示该字符串含有的本质不同的子串数量。 输入输出样例输入样例 2CCCCCABABA  输">
+  <meta name="description" content="SP694 DISUBTER-Distinct Substrings 如果上面进不去的话戳我 题目描述给定一个字符串，求该字符串含有的本质不同的子串数量。 输入输出格式输入格式第一行一个整数$T$表示数据组数$(T≤20)$。每组数据包含一个长度$len≤1000$的字符串。 输出格式对于每组数据输出一个数，表示该字符串含有的本质不同的子串数量。">
 <meta name="keywords" content="后缀数组">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SP694 DISUBTER-Distinct Substrings">
 <meta property="og:url" content="http://yoursite.com/2019/02/13/SP694-DISUBTER-Distinct-Substrings/index.html">
 <meta property="og:site_name" content="湫风酱的小屋">
-<meta property="og:description" content="SP694 DISUBTER-Distinct Substrings 如果上面进不去的话戳我 题目描述给定一个字符串，求该字符串含有的本质不同的子串数量。 输入输出格式输入格式第一行一个整数$T$表示数据组数$(T≤20)$。每组数据包含一个长度$len≤1000$的字符串。 输出格式对于每组数据输出一个数，表示该字符串含有的本质不同的子串数量。 输入输出样例输入样例 2CCCCCABABA  输">
+<meta property="og:description" content="SP694 DISUBTER-Distinct Substrings 如果上面进不去的话戳我 题目描述给定一个字符串，求该字符串含有的本质不同的子串数量。 输入输出格式输入格式第一行一个整数$T$表示数据组数$(T≤20)$。每组数据包含一个长度$len≤1000$的字符串。 输出格式对于每组数据输出一个数，表示该字符串含有的本质不同的子串数量。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-13T04:30:01.205Z">
+<meta property="og:updated_time" content="2019-02-13T04:32:22.184Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SP694 DISUBTER-Distinct Substrings">
-<meta name="twitter:description" content="SP694 DISUBTER-Distinct Substrings 如果上面进不去的话戳我 题目描述给定一个字符串，求该字符串含有的本质不同的子串数量。 输入输出格式输入格式第一行一个整数$T$表示数据组数$(T≤20)$。每组数据包含一个长度$len≤1000$的字符串。 输出格式对于每组数据输出一个数，表示该字符串含有的本质不同的子串数量。 输入输出样例输入样例 2CCCCCABABA  输">
+<meta name="twitter:description" content="SP694 DISUBTER-Distinct Substrings 如果上面进不去的话戳我 题目描述给定一个字符串，求该字符串含有的本质不同的子串数量。 输入输出格式输入格式第一行一个整数$T$表示数据组数$(T≤20)$。每组数据包含一个长度$len≤1000$的字符串。 输出格式对于每组数据输出一个数，表示该字符串含有的本质不同的子串数量。">
   
     <link rel="alternative" href="/atom.xml" title="湫风酱的小屋" type="application/atom+xml">
   
@@ -176,6 +176,7 @@
 <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个字符串，求该字符串含有的本质不同的子串数量。</p>
 <h3 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h3><h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><p>第一行一个整数$T$表示数据组数$(T≤20)$。<br>每组数据包含一个长度$len≤1000$的字符串。</p>
 <h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>对于每组数据输出一个数，表示该字符串含有的本质不同的子串数量。</p>
+<a id="more"></a>
 <h3 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h3><h4 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例"></a>输入样例</h4><blockquote>
 <p>2<br>CCCCC<br>ABABA</p>
 </blockquote>
@@ -489,14 +490,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">DP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">高精度</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">线段树</a>
               </li>
              
@@ -505,7 +498,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">DP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">高精度</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">后缀数组</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">容斥原理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -517,10 +522,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">容斥原理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">网络流</a>
               </li>
              
@@ -529,11 +530,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">费用流</a>
+                <a href="javascript:void(0)" class="js-tag color3">莫队</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">莫队</a>
+                <a href="javascript:void(0)" class="js-tag color4">费用流</a>
               </li>
             
             <div class="clearfix"></div>
