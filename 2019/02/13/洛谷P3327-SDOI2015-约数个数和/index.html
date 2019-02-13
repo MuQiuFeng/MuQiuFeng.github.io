@@ -6,20 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>SP413 WPUZZLES - Word Puzzles | 湫风酱的小屋</title>
+  <title>洛谷P3327-[SDOI2015]约数个数和 | 湫风酱的小屋</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="SP413 WPUZZLES - Word Puzzles 题目描述有一个字符串矩阵，现在给出一些字符串，求这些字符串在矩阵中出现的初始位置以及延伸的方向（必须为直线）。方向：A-G，分别表示↑↗→↘↓↙←↖">
-<meta name="keywords" content="AC自动机,搜索">
+  <meta name="keywords" content="莫比乌斯反演">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SP413 WPUZZLES - Word Puzzles">
-<meta property="og:url" content="http://yoursite.com/2019/02/11/SP413-WPUZZLES-Word-Puzzles/index.html">
+<meta property="og:title" content="洛谷P3327-[SDOI2015]约数个数和">
+<meta property="og:url" content="http://yoursite.com/2019/02/13/洛谷P3327-SDOI2015-约数个数和/index.html">
 <meta property="og:site_name" content="湫风酱的小屋">
-<meta property="og:description" content="SP413 WPUZZLES - Word Puzzles 题目描述有一个字符串矩阵，现在给出一些字符串，求这些字符串在矩阵中出现的初始位置以及延伸的方向（必须为直线）。方向：A-G，分别表示↑↗→↘↓↙←↖">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-11T14:05:54.810Z">
+<meta property="og:updated_time" content="2019-02-13T14:26:01.595Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SP413 WPUZZLES - Word Puzzles">
-<meta name="twitter:description" content="SP413 WPUZZLES - Word Puzzles 题目描述有一个字符串矩阵，现在给出一些字符串，求这些字符串在矩阵中出现的初始位置以及延伸的方向（必须为直线）。方向：A-G，分别表示↑↗→↘↓↙←↖">
+<meta name="twitter:title" content="洛谷P3327-[SDOI2015]约数个数和">
   
     <link rel="alternative" href="/atom.xml" title="湫风酱的小屋" type="application/atom+xml">
   
@@ -151,31 +148,27 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-SP413-WPUZZLES-Word-Puzzles" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-洛谷P3327-SDOI2015-约数个数和" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      SP413 WPUZZLES - Word Puzzles
+      洛谷P3327-[SDOI2015]约数个数和
     </h1>
   
 
         
-        <a href="/2019/02/11/SP413-WPUZZLES-Word-Puzzles/" class="archive-article-date">
-  	<time datetime="2019-02-11T06:05:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-11</time>
+        <a href="/2019/02/13/洛谷P3327-SDOI2015-约数个数和/" class="archive-article-date">
+  	<time datetime="2019-02-13T14:23:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="https://www.luogu.org/problemnew/show/SP413" target="_blank" rel="noopener">SP413 WPUZZLES - Word Puzzles</a></p>
-<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>有一个字符串矩阵，现在给出一些字符串，求这些字符串在矩阵中出现的初始位置以及延伸的方向（必须为直线）。<br>方向：A-G，分别表示↑↗→↘↓↙←↖</p>
-<a id="more"></a>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>AC自动机+爆搜，对于每个字符串结尾，标记此节点为第几个字符串的结尾，初值为0，搜索时若发现此节点此值大于0即为字符串末尾，用公式计算坐标即可。细节详见代码。</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Code by muq</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;ctime&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;deque&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> inf 2147483647</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> io0 ios::sync_with_stdio(0)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">muq</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    freopen(<span class="string">"muq.in.txt"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e6</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxl = <span class="number">1e3</span> + <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> r, c, n, T, len[maxl];</span><br><span class="line"><span class="keyword">int</span> dx[] = &#123;<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">-1</span>&#125;;<span class="comment">//预先处理好8个方向的坐标变化情况</span></span><br><span class="line"><span class="keyword">int</span> dy[] = &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>&#125;;</span><br><span class="line"><span class="built_in">string</span> la;</span><br><span class="line"><span class="built_in">string</span> s[maxl];<span class="comment">//s[]存储整个矩阵</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Ans</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> x, y, dir;</span><br><span class="line">&#125; ans[maxl];</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">AC_auto</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> tr[maxn][<span class="number">26</span>];<span class="comment">//为每个点对应的儿子</span></span><br><span class="line">    <span class="keyword">int</span> fail[maxn];<span class="comment">//当前节点fail指针指向的节点</span></span><br><span class="line">    <span class="keyword">int</span> e[maxn];<span class="comment">//表当前节点是否是某个字符串的末尾</span></span><br><span class="line">    <span class="keyword">int</span> cnt, rt;<span class="comment">//cnt为节点总数，rt为当前Trie图的根</span></span><br><span class="line">    <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="built_in">string</span> t, <span class="keyword">int</span> id)</span> </span>&#123;<span class="comment">//插入一个字符串</span></span><br><span class="line">        <span class="keyword">int</span> p = rt;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; t[i]; ++i) &#123;</span><br><span class="line">            <span class="keyword">int</span> u = t[i] - <span class="string">'A'</span>;</span><br><span class="line">            <span class="keyword">if</span>(!tr[p][u])</span><br><span class="line">                tr[p][u] = ++cnt;</span><br><span class="line">            p = tr[p][u];</span><br><span class="line">        &#125;</span><br><span class="line">        e[p] = id;<span class="comment">//记录当前节点是第几个字符串的末尾</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;<span class="comment">//初始化</span></span><br><span class="line">        cnt = rt = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">memset</span>(tr, <span class="number">0</span>, <span class="keyword">sizeof</span>(tr));</span><br><span class="line">        <span class="built_in">memset</span>(fail, <span class="number">0</span>, <span class="keyword">sizeof</span>(fail));</span><br><span class="line">        <span class="built_in">memset</span>(e, <span class="number">0</span>, <span class="keyword">sizeof</span>(e));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">build</span><span class="params">()</span> </span>&#123;<span class="comment">//建立fail指针</span></span><br><span class="line">        <span class="built_in">queue</span> &lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line">        <span class="built_in">memset</span>(fail, <span class="number">0</span>, <span class="keyword">sizeof</span>(fail));</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span>; ++i)</span><br><span class="line">            <span class="keyword">if</span>(tr[rt][i])</span><br><span class="line">                q.push(tr[rt][i]);</span><br><span class="line">        <span class="keyword">while</span>(!q.empty()) &#123;</span><br><span class="line">            <span class="keyword">int</span> u = q.front(); q.pop();</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span>; ++i) &#123;</span><br><span class="line">                <span class="keyword">if</span>(tr[u][i]) &#123;</span><br><span class="line">                    fail[tr[u][i]] = tr[fail[u]][i];</span><br><span class="line">                    q.push(tr[u][i]);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    tr[u][i] = tr[fail[u]][i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> dir)</span> </span>&#123;<span class="comment">//在图中寻找字符串</span></span><br><span class="line">        <span class="keyword">int</span> p = rt;</span><br><span class="line">        <span class="keyword">while</span>(x &gt;= <span class="number">0</span> <span class="keyword">and</span> y &gt;= <span class="number">0</span> <span class="keyword">and</span> x &lt; r <span class="keyword">and</span> y &lt; c) &#123;</span><br><span class="line">            p = tr[p][s[x][y] - <span class="string">'A'</span>];</span><br><span class="line">            <span class="keyword">if</span>(e[p]) &#123;<span class="comment">//若e[p]&gt;0则说明当前点是某个字符串的末尾证明找到了一个字符串</span></span><br><span class="line">                ans[e[p]].x = x - (len[e[p]] - <span class="number">1</span>) * dx[dir];<span class="comment">//推算回去即可</span></span><br><span class="line">                ans[e[p]].y = y - (len[e[p]] - <span class="number">1</span>) * dy[dir];</span><br><span class="line">                ans[e[p]].dir = dir;</span><br><span class="line">            &#125;</span><br><span class="line">            x += dx[dir], y += dy[dir];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125; ac;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">    muq();</span><br><span class="line">    io0;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; T;</span><br><span class="line">    <span class="keyword">while</span>(T--) &#123;</span><br><span class="line">        ac.init();<span class="comment">//初始化</span></span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; r &gt;&gt; c &gt;&gt; n;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; r; ++i)</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; s[i];<span class="comment">//读入矩阵</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; la;</span><br><span class="line">            ac.insert(la, i);</span><br><span class="line">            len[i] = la.size();<span class="comment">//记录下当前字符串的长度便于find函数中推算起始位置</span></span><br><span class="line">        &#125;</span><br><span class="line">        ac.build();<span class="comment">//建立fail指针</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; r; ++i) &#123;</span><br><span class="line">            ac.find(i, <span class="number">0</span>, <span class="number">1</span>), ac.find(i, <span class="number">0</span>, <span class="number">2</span>), ac.find(i, <span class="number">0</span>, <span class="number">3</span>);<span class="comment">//从左边往右上，右，右下搜索</span></span><br><span class="line">            ac.find(i, c - <span class="number">1</span>, <span class="number">5</span>), ac.find(i, c - <span class="number">1</span>, <span class="number">6</span>), ac.find(i, c - <span class="number">1</span>, <span class="number">7</span>);<span class="comment">//从右边往左下，左，左上搜索</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; c; ++i) &#123;</span><br><span class="line">            ac.find(<span class="number">0</span>, i, <span class="number">3</span>), ac.find(<span class="number">0</span>, i, <span class="number">4</span>), ac.find(<span class="number">0</span>, i, <span class="number">5</span>);<span class="comment">//从上往右下，下，左下搜索</span></span><br><span class="line">            ac.find(r - <span class="number">1</span>, i, <span class="number">7</span>), ac.find(r - <span class="number">1</span>, i, <span class="number">0</span>), ac.find(r - <span class="number">1</span>, i, <span class="number">1</span>);<span class="comment">//从下往左上，上，右上搜索</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; ans[i].x &lt;&lt; <span class="string">" "</span> &lt;&lt; ans[i].y &lt;&lt; <span class="string">" "</span> &lt;&lt; (<span class="keyword">char</span>)(ans[i].dir + <span class="string">'A'</span>) &lt;&lt; <span class="built_in">endl</span>;<span class="comment">//输出即可</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(T)</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;<span class="comment">//格式要求</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
       
 
       
@@ -209,11 +202,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">AC自动机</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">搜索</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">莫比乌斯反演</a>
         		</li>
       		
 		</ul>
@@ -225,7 +214,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/AC-automaton//" class="article-tag-list-link color3">AC automaton</a>
+        			<a href="/categories/Mobius-inversion-formula//" class="article-tag-list-link color5">Mobius inversion formula</a>
         		</li>
       		
 		</ul>
@@ -280,7 +269,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/02/11/SP413-WPUZZLES-Word-Puzzles/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/02/13/洛谷P3327-SDOI2015-约数个数和/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -294,18 +283,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/02/11/洛谷P1450-HAOI2008-硬币购物/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          洛谷P1450 [HAOI2008]硬币购物
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/12/22/HDU3949-XOR/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">HDU 3949 XOR</div>
+    <a href="/2019/02/13/洛谷P2257-YY的GCD/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">洛谷P2257-YY的GCD</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -332,7 +312,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目描述"><span class="toc-number">1.</span> <span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">2.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码"><span class="toc-number">3.</span> <span class="toc-text">代码</span></a></li></ol>
+                    找不到目录呀QAQ～～～
                     </div>
                 </span>
             </div>
