@@ -148,6 +148,115 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-SP694-DISUBTER-Distinct-Substrings" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/13/SP694-DISUBTER-Distinct-Substrings/">SP694 DISUBTER-Distinct Substrings</a>
+    </h1>
+  
+
+        
+        <a href="/2019/02/13/SP694-DISUBTER-Distinct-Substrings/" class="archive-article-date">
+  	<time datetime="2019-02-13T03:54:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://www.spoj.com/problems/DISUBSTR/" target="_blank" rel="noopener">SP694 DISUBTER-Distinct Substrings</a></p>
+<p><a href="https://www.luogu.org/problemnew/show/SP694" target="_blank" rel="noopener">如果上面进不去的话戳我</a></p>
+<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个字符串，求该字符串含有的本质不同的子串数量。</p>
+<h3 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h3><h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><p>第一行一个整数$T$表示数据组数$(T≤20)$。<br>每组数据包含一个长度$len≤1000$的字符串。</p>
+<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>对于每组数据输出一个数，表示该字符串含有的本质不同的子串数量。</p>
+<h3 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h3><h4 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例"></a>输入样例</h4><blockquote>
+<p>2<br>CCCCC<br>ABABA</p>
+</blockquote>
+<h4 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例"></a>输出样例</h4><blockquote>
+<p>5<br>9</p>
+</blockquote>
+<h3 id="样例解释"><a href="#样例解释" class="headerlink" title="样例解释"></a>样例解释</h3><p>对于字符串$”ABABA”$:<br>$len=1$时 : $A,B$<br>$len=2$时 : $AB,BA$<br>$len=3$时 : $ABA,BAB$<br>$len=4$时 : $ABAB,BABA$<br>$len=5$时 : $ABABA$<br>因此，它的本质不同的子串个数为$9$。</p>
+<hr>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p><strong>后缀数组</strong>套板子即可。</p>
+<p><a href="https://www.cnblogs.com/victorique/p/8480093.html" target="_blank" rel="noopener">不会后缀数组的看这里</a></p>
+<p><a href="http://muqzzz.cf/2019/02/12/%E6%B4%9B%E8%B0%B7P3809-%E3%80%90%E6%A8%A1%E6%9D%BF%E3%80%91%E5%90%8E%E7%BC%80%E6%8E%92%E5%BA%8F/" target="_blank" rel="noopener">洛谷P3809 【模板】后缀排序 题解</a></p>
+<p>考虑怎么计算不同子串个数:</p>
+<ul>
+<li><p>方法一：<br>令原字符串长度为$n$，则对于每个位置$sa_i$，显然以它开始的子串个数为$n - sa_i + 1$，而它与之前的$sa_1$~$sa_{i - 1}$个位置构成的所有子串的重复部分即为$h_i = height[rk_i]$，故对于每一个$sa[i]$对答案会有$(n - sa[i] + 1) - h_i$的贡献（总子串个数减去重复个数），由于是按字典序从小到大枚举，所以这样算是对的。<br>即：<br>$ans = \sum_{i = 1}^{n} (n - sa_i + 1 - h_i)$</p>
+</li>
+<li><p>方法二：<br>首先计算重复子串与上面相同，都是减去$h_i$。<br>定义一个字符串的子串个数为$tot(s)$<br>又因为对于一个长度为$n$的字符串$s$，它的子串个数<br>$tot(s) = \frac{n \times (n + 1)}{2}$。<br>因此答案即为$tot(s) - \sum_{i = 1}^{h_i}$</p>
+</li>
+</ul>
+<p>显然方法二的运算量比方法一小，可以提高程序效率。</p>
+<hr>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Code by muq</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ls o &lt;&lt; 1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rs o &lt;&lt; 1 | 1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> lson o &lt;&lt; 1, l, mid</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rson o &lt;&lt; 1 | 1, mid + 1, r</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> inf 2147483647</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> io0 ios::sync_with_stdio(0)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">muq</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    freopen(<span class="string">"muq.in.txt"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e6</span> + <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> T, n, m, s[maxn];</span><br><span class="line"><span class="keyword">char</span> str[maxn];</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> SA &#123;<span class="comment">//后缀数组模板</span></span><br><span class="line">	<span class="keyword">int</span> sa[maxn], rk[maxn], h[maxn];</span><br><span class="line">	<span class="keyword">int</span> sec[maxn], ht[maxn];</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j, <span class="keyword">int</span> w)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> ((sec[i] == sec[j]) <span class="keyword">and</span> (sec[i + w] == sec[j + w]));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Rsort</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= m; ++i)</span><br><span class="line">			ht[i] = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">			++ht[rk[sec[i]]];</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; ++i)</span><br><span class="line">			ht[i] += ht[i - <span class="number">1</span>];</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = n; i &gt;= <span class="number">1</span>; --i)</span><br><span class="line">			sa[ht[rk[sec[i]]]--] = sec[i];</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">getSA</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">			rk[i] = s[i], sec[i] = i;</span><br><span class="line">		Rsort();</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> num = <span class="number">1</span>, w = <span class="number">1</span>; num &lt; n; w &lt;&lt;= <span class="number">1</span>, m = num) &#123;</span><br><span class="line">			num = <span class="number">0</span>;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i = n - w + <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">				sec[++num] = i;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">				<span class="keyword">if</span>(sa[i] &gt; w) sec[++num] = sa[i] - w;</span><br><span class="line">			Rsort(), swap(rk, sec);</span><br><span class="line">			rk[sa[<span class="number">1</span>]] = num = <span class="number">1</span>;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; ++i)</span><br><span class="line">				rk[sa[i]] = cmp(sa[i], sa[i - <span class="number">1</span>], w) ? num : ++num;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">getheight</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> len = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">			<span class="keyword">int</span> j = sa[rk[i] - <span class="number">1</span>];</span><br><span class="line">			<span class="keyword">if</span>(len)</span><br><span class="line">				--len;</span><br><span class="line">			<span class="keyword">while</span>(s[i + len] == s[j + len])</span><br><span class="line">				++len;</span><br><span class="line">			h[rk[i]] = len;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> SA;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">	muq();</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;T);</span><br><span class="line">	<span class="keyword">while</span>(T--) &#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%s"</span>, str + <span class="number">1</span>);</span><br><span class="line">		n = <span class="built_in">strlen</span>(str + <span class="number">1</span>);</span><br><span class="line">		m = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">			m = max(m, (s[i] = str[i]));</span><br><span class="line">			<span class="comment">//记录最大字符编号，防止冗余计算</span></span><br><span class="line">		getSA();</span><br><span class="line">		getheight();</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//方法二：</span></span><br><span class="line">		<span class="keyword">int</span> sum = (((n + <span class="number">1</span>) * n) &gt;&gt; <span class="number">1</span>);</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) </span><br><span class="line">			sum -= h[i];</span><br><span class="line">		<span class="comment">/*方法一：</span></span><br><span class="line"><span class="comment">		int sum = 0;</span></span><br><span class="line"><span class="comment">		for(int i = 1; i &lt;= n; ++i)</span></span><br><span class="line"><span class="comment">			sum += (n - sa[i] + 1 - h[i]);*/</span></span><br><span class="line">		</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, sum);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">后缀数组</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/suffix-array//" class="article-tag-list-link color3">suffix array</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/02/13/SP694-DISUBTER-Distinct-Substrings/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-洛谷P3809-【模板】后缀排序" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -561,100 +670,6 @@
 
 
   
-    <article id="post-洛谷P1450-HAOI2008-硬币购物" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/11/洛谷P1450-HAOI2008-硬币购物/">洛谷P1450 [HAOI2008]硬币购物</a>
-    </h1>
-  
-
-        
-        <a href="/2019/02/11/洛谷P1450-HAOI2008-硬币购物/" class="archive-article-date">
-  	<time datetime="2019-02-11T08:25:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://www.luogu.org/problemnew/show/P1450" target="_blank" rel="noopener">洛谷P1450 [HAOI2008]硬币购物</a></p>
-<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>硬币购物一共有$4$种硬币。面值分别为$c_1$,$c_2$,$c_3$,$c_4$。某人去商店买东西，去了$tot$次。每次带$d_i$枚$c_i$硬币，买$s_i$的价值的东西。请问每次有多少种付款方法。</p>
-<h3 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h3><h4 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h4><p>第一行 $c_1$,$c_2$,$c_3$,$c_4$,$tot$<br>下面$tot$行 $d_1$,$d_2$,$d_3$,$d_4$,$s$</p>
-<h4 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h4><p>每次的方法数。</p>
-        
-          <a class="article-more-a" href="/2019/02/11/洛谷P1450-HAOI2008-硬币购物/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">DP</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">容斥原理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Principle-of-inclusion-exclusion//" class="article-tag-list-link color3">Principle of inclusion-exclusion</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/02/11/洛谷P1450-HAOI2008-硬币购物/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -789,14 +804,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">线段树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">搜索</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">DP</a>
               </li>
              
@@ -805,7 +812,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">容斥原理</a>
+                <a href="javascript:void(0)" class="js-tag color4">线段树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">搜索</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">后缀数组</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -817,6 +832,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">容斥原理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">网络流</a>
               </li>
              
@@ -825,15 +844,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">莫队</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">后缀数组</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">费用流</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">莫队</a>
               </li>
             
             <div class="clearfix"></div>
