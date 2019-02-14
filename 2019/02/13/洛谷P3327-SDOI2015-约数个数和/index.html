@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>洛谷P3327-[SDOI2015]约数个数和 | 湫风酱的小屋</title>
+  <title>洛谷P3327 [SDOI2015]约数个数和 | 湫风酱的小屋</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="咕咕咕">
+  <meta name="description" content="洛谷P3327 [SDOI2015]约数个数和 题目描述设$d(x)$为$x$的约数个数，给定$N$、$M$，求$\sum_{i = 1}^{N}\sum_{j = 1}^{M}d(ij)$ 输入输出格式输入格式：输入文件包含多组测试数据。第一行，一个整数$T$，表示测试数据的组数。接下来的$T$行，每行两个整数$N$、$M$。 输出格式：$T$行，每行一个整数，表示你所求的答案。">
 <meta name="keywords" content="莫比乌斯反演">
 <meta property="og:type" content="article">
-<meta property="og:title" content="洛谷P3327-[SDOI2015]约数个数和">
+<meta property="og:title" content="洛谷P3327 [SDOI2015]约数个数和">
 <meta property="og:url" content="http://yoursite.com/2019/02/13/洛谷P3327-SDOI2015-约数个数和/index.html">
 <meta property="og:site_name" content="湫风酱的小屋">
-<meta property="og:description" content="咕咕咕">
+<meta property="og:description" content="洛谷P3327 [SDOI2015]约数个数和 题目描述设$d(x)$为$x$的约数个数，给定$N$、$M$，求$\sum_{i = 1}^{N}\sum_{j = 1}^{M}d(ij)$ 输入输出格式输入格式：输入文件包含多组测试数据。第一行，一个整数$T$，表示测试数据的组数。接下来的$T$行，每行两个整数$N$、$M$。 输出格式：$T$行，每行一个整数，表示你所求的答案。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-13T14:26:43.791Z">
+<meta property="og:updated_time" content="2019-02-14T01:47:16.517Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="洛谷P3327-[SDOI2015]约数个数和">
-<meta name="twitter:description" content="咕咕咕">
+<meta name="twitter:title" content="洛谷P3327 [SDOI2015]约数个数和">
+<meta name="twitter:description" content="洛谷P3327 [SDOI2015]约数个数和 题目描述设$d(x)$为$x$的约数个数，给定$N$、$M$，求$\sum_{i = 1}^{N}\sum_{j = 1}^{M}d(ij)$ 输入输出格式输入格式：输入文件包含多组测试数据。第一行，一个整数$T$，表示测试数据的组数。接下来的$T$行，每行两个整数$N$、$M$。 输出格式：$T$行，每行一个整数，表示你所求的答案。">
   
     <link rel="alternative" href="/atom.xml" title="湫风酱的小屋" type="application/atom+xml">
   
@@ -158,7 +158,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      洛谷P3327-[SDOI2015]约数个数和
+      洛谷P3327 [SDOI2015]约数个数和
     </h1>
   
 
@@ -171,8 +171,32 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>咕咕咕</p>
-
+        <p><a href="https://www.luogu.org/problemnew/show/P3327" target="_blank" rel="noopener">洛谷P3327 [SDOI2015]约数个数和</a></p>
+<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>设$d(x)$为$x$的约数个数，给定$N$、$M$，求$\sum_{i = 1}^{N}\sum_{j = 1}^{M}d(ij)$</p>
+<h3 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h3><h4 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h4><p>输入文件包含多组测试数据。第一行，一个整数$T$，表示测试数据的组数。接下来的$T$行，每行两个整数$N$、$M$。</p>
+<h4 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h4><p>$T$行，每行一个整数，表示你所求的答案。</p>
+<a id="more"></a>
+<h3 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h3><h4 id="输入样例-1："><a href="#输入样例-1：" class="headerlink" title="输入样例#1："></a>输入样例#1：</h4><blockquote>
+<p>2<br>7 4<br>5 6</p>
+</blockquote>
+<h4 id="输出样例-1："><a href="#输出样例-1：" class="headerlink" title="输出样例#1："></a>输出样例#1：</h4><blockquote>
+<p>110<br>121</p>
+</blockquote>
+<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>$1&lt;=N, M&lt;=50000$</p>
+<p>$1&lt;=T&lt;=50000$</p>
+<hr>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>首先，我们得知道一个求约数个数的公式：<br>$$d(ij) = \sum_{x|i}\sum_{y|j}[gcd(x, y) == 1]$$</p>
+<p>其证明过程如下：<br>我们考虑把每一个因子一一映射。<br>若$ij$的因子$k$有一个因子$p^c$，$i$中有因子$p^b$我们规定：</p>
+<ul>
+<li>如果$c ≤ a$，那么在$i$中选择。</li>
+<li>如果$c &gt; a$，那么我们把$c$减去$a$，在$j$中选择$p^{c-a}$(在$j$中选择$p^e$表示的是$p^{a + e}$)</li>
+</ul>
+<p>对于$ij$的因子$k$的其它因子同理。于是对于任意的一个$k$有一个唯一的映射，且每一个选择对应着唯一的$k$。<br>通过如上过程，我们发现：对于$ij$的因子$k = \prod_{}p_i^{c_i}$，我们不可能同时在$i$和$j$中选择$p_i$（优先在$i$中选择，若不够就只在$j$中选择不够的指数），故$x$和$y$必须互质。</p>
+<p>证毕。</p>
+<p>以上证明过程来自<a href="https://orzsiyuan.com/articles/problem-SDOI-2015-Sum-of-Divisors/" target="_blank" rel="noopener">Siyuan’s Blog</a>（感谢）</p>
+<p>由上述公式我们可知所求为：<br>$$Ans = \sum_{i = 1}^{n}\sum_{j = 1}^{m}$$<br>即：<br>$$Ans = \sum_{i = 1}^{n}\sum_{j = 1}^{m}\sum_{x|i}\sum_{y|j}[gcd(x, y) = 1]$$<br>根据μ函数的性质:<br>$$\sum_{d|x}μ(d) = [x = 1]$$<br>则可以得到：<br>$$Ans = \sum_{i = 1}^{n}\sum_{j = 1}^{m}\sum_{x|i}\sum_{y|j}\sum_{d|gcd(x, y)}μ(d)$$<br>我们更换枚举项，由枚举$gcd(x, y)$的约数，改为直接枚举$d$：<br>$$Ans = \sum_{i = 1}^{n}\sum_{j = 1}^{m}\sum_{x|i}\sum_{y|j}\sum_{d = 1}^{min(n, m)}μ(d)·[d|gcd(x, y)]$$<br>由于$μ(d)$与$i$，$j$无关，我们把它提出来：<br>$$Ans = \sum_{d = 1}^{min(n, m)}μ(d)\sum_{i = 1}^{n}\sum_{j = 1}^{m}\sum_{x|i}\sum_{y|j}[d|gcd(x, y)]$$<br>我们将枚举项换一下，由枚举$i$，$j$与它们的约数改为枚举他们的约数再直接乘上这些约数的倍数的个数（因为每个约数都会对它的倍数产生贡献）。<br>$$Ans = \sum_{d = 1}^{min(n, m)}μ(d)\sum_{x = 1}^{n}\sum_{y = 1}^{m}[d|gcd(x, y)]\lfloor\frac{n}{x}\rfloor\lfloor\frac{m}{y}\rfloor$$<br>我们再将枚举项$x$，$y$更换为枚举$dx$，$dy$。故有：<br>$$\sum_{x = 1}^{n}\sum_{y = 1}^{m}[d|gcd(x, y)]\lfloor\frac{n}{x}\rfloor\lfloor\frac{m}{y}\rfloor = \sum_{x = 1}^{\lfloor\frac{n}{d}\rfloor}\sum_{y = 1}^{\lfloor\frac{m}{d}\rfloor}[1|gcd(\frac{x}{d}, \frac{y}{d})]\lfloor\frac{n}{dx}\rfloor\lfloor\frac{m}{dy}\rfloor$$<br>又因为$gcd(\frac{x}{d}, \frac{y}{d})$一定为一个正整数，因此对于任意$gcd(\frac{x}{d}, \frac{y}{d})$，它都能被$1$整除，即：<br>$$[1|gcd(\frac{x}{d}, \frac{y}{d})] = 1$$<br>因此：<br>$$\sum_{x = 1}^{n}\sum_{y = 1}^{m}[d|gcd(x, y)]\lfloor\frac{n}{x}\rfloor\lfloor\frac{m}{y}\rfloor = \sum_{x = 1}^{\lfloor\frac{n}{d}\rfloor}\sum_{y = 1}^{\lfloor\frac{m}{d}\rfloor}\lfloor\frac{n}{dx}\rfloor\lfloor\frac{m}{dy}\rfloor$$<br>所以有：<br>$$Ans = \sum_{d = 1}^{min(n, m)}μ(d)\sum_{x = 1}^{\lfloor\frac{n}{d}\rfloor}\sum_{y = 1}^{\lfloor\frac{m}{d}\rfloor}\lfloor\frac{n}{dx}\rfloor\lfloor\frac{m}{dy}\rfloor$$<br>我们发现$\lfloor\frac{n}{dx}\rfloor$与$y$无关，所以可以提前：<br>$$Ans = \sum_{d = 1}^{min(n, m)}μ(d)(\sum_{x = 1}^{\lfloor\frac{n}{d}\rfloor}\lfloor\frac{n}{dx}\rfloor)(\sum_{y = 1}^{\lfloor\frac{m}{d}\rfloor}\lfloor\frac{m}{dy}\rfloor)$$<br>至此，我们就可以以$O(n)$的时间复杂度枚举$d$求出$Ans$了，但是由于有多组数据的原因，我们要用<strong>整除分块</strong>来优化，将时间复杂度降至$O(\sqrt{n})$。<br>本题至此就结束了，具体实现细节请看代码。<br><strong>感谢（<a href="https://www.cnblogs.com/peng-ym/" target="_blank" rel="noopener">@pengym</a> <a href="https://orzsiyuan.com" target="_blank" rel="noopener">@Siyuan</a>）对本人在此题上的帮助。</strong></p>
+<hr>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Code by muq</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ls o &lt;&lt; 1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rs o &lt;&lt; 1 | 1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> lson o &lt;&lt; 1, l, mid</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rson o &lt;&lt; 1 | 1, mid + 1, r</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> inf 2147483647</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> io0 ios::sync_with_stdio(0)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">muq</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    freopen(<span class="string">"muq.in.txt"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">5e4</span> + <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> pr[maxn], tot, mu[maxn], sum[maxn];</span><br><span class="line">ll g[maxn];</span><br><span class="line"><span class="keyword">bool</span> vis[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">getmu</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">	mu[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">		<span class="keyword">if</span>(!vis[i])</span><br><span class="line">			pr[++tot] = i, mu[i] = <span class="number">-1</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= tot <span class="keyword">and</span> i * pr[j] &lt;= n; ++j) &#123;</span><br><span class="line">			vis[i * pr[j]] = <span class="number">1</span>;</span><br><span class="line">			<span class="keyword">if</span>(!(i % pr[j]))</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			mu[i * pr[j]] = -mu[i];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)<span class="comment">//μ函数前缀和</span></span><br><span class="line">		sum[i] = sum[i - <span class="number">1</span>] + mu[i];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">		<span class="comment">//预处理出</span></span><br><span class="line">		<span class="comment">//\sum_&#123;i = 1&#125;^&#123;n&#125;\lfloor\frac&#123;n&#125;&#123;i&#125;\rfloor</span></span><br><span class="line">		ll ans = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> l = <span class="number">1</span>, r; l &lt;= i; l = r + <span class="number">1</span>) &#123;<span class="comment">//(枚举到n的我没救了)</span></span><br><span class="line">			r = (i / (i / l));</span><br><span class="line">			ans += <span class="number">1l</span>l * (r - l + <span class="number">1</span>) * <span class="number">1l</span>l * (i / l);</span><br><span class="line">		&#125;</span><br><span class="line">		g[i] = ans;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> T, n, m, rep;</span><br><span class="line">ll ans;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">	muq();</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;T);</span><br><span class="line">	getmu(<span class="number">50000</span>);<span class="comment">//处理出μ函数及其前缀和</span></span><br><span class="line">	<span class="keyword">while</span>(T--) &#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;n, &amp;m);</span><br><span class="line">		ans = <span class="number">0</span>, rep = min(n, m);</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> l = <span class="number">1</span>, r; l &lt;= rep; l = r + <span class="number">1</span>) &#123;<span class="comment">//整除分块求答案</span></span><br><span class="line">			r = min((n / (n / l)), (m / (m / l)));</span><br><span class="line">			ans += (sum[r] - sum[l - <span class="number">1</span>]) * <span class="number">1l</span>l * g[n / l] * <span class="number">1l</span>l * g[m / l];<span class="comment">//计算贡献</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, ans);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -316,7 +340,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    找不到目录呀QAQ～～～
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目描述"><span class="toc-number">1.</span> <span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#输入输出格式"><span class="toc-number">2.</span> <span class="toc-text">输入输出格式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#输入格式："><span class="toc-number">2.1.</span> <span class="toc-text">输入格式：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#输出格式："><span class="toc-number">2.2.</span> <span class="toc-text">输出格式：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#输入输出样例"><span class="toc-number">3.</span> <span class="toc-text">输入输出样例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#输入样例-1："><span class="toc-number">3.1.</span> <span class="toc-text">输入样例#1：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#输出样例-1："><span class="toc-number">3.2.</span> <span class="toc-text">输出样例#1：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#说明"><span class="toc-number">4.</span> <span class="toc-text">说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">5.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码"><span class="toc-number">6.</span> <span class="toc-text">代码</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -453,7 +477,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分块</a>
+                <a href="javascript:void(0)" class="js-tag color4">线段树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">搜索</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -465,27 +493,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">线段树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">搜索</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">DP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">高精度</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">后缀数组</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">分块</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">容斥原理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">DP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -510,6 +530,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">莫队</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">高精度</a>
               </li>
              
               <li class="article-tag-list-item">
