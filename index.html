@@ -172,35 +172,9 @@
 <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>如题，一开始有N个小根堆，每个堆包含且仅包含一个数。接下来需要支持两种操作：</p>
 <p>操作1： 1 x y 将第x个数和第y个数所在的小根堆合并（若第x或第y个数已经被删除或第x和第y个数在用一个堆内，则无视此操作）</p>
 <p>操作2： 2 x 输出第x个数所在的堆最小数，并将其删除（若第x个数已经被删除，则输出-1并无视删除操作）</p>
-<h3 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h3><h4 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h4><p>第一行包含两个正整数N、M，分别表示一开始小根堆的个数和接下来操作的个数。</p>
-<p>第二行包含N个正整数，其中第i个正整数表示第i个小根堆初始时包含且仅包含的数。</p>
-<p>接下来M行每行2个或3个正整数，表示一条操作，格式如下：</p>
-<p>操作1 ： 1 x y</p>
-<p>操作2 ： 2 x</p>
-<h4 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h4><p>输出包含若干行整数，分别依次对应每一个操作2所得的结果。</p>
-<h3 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h3><h4 id="输入样例-1："><a href="#输入样例-1：" class="headerlink" title="输入样例#1："></a>输入样例#1：</h4><blockquote>
-<p>5 5<br>1 5 4 2 3<br>1 1 5<br>1 2 5<br>2 2<br>1 4 2<br>2 2</p>
-</blockquote>
-<h4 id="输出样例-1："><a href="#输出样例-1：" class="headerlink" title="输出样例#1："></a>输出样例#1：</h4><blockquote>
-<p>1<br>2</p>
-</blockquote>
-<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>当堆里有多个最小值时，优先删除原序列的靠前的，否则会影响后续操作1导致WA。</p>
-<h3 id="时空限制：1000ms-128M"><a href="#时空限制：1000ms-128M" class="headerlink" title="时空限制：1000ms/128M"></a>时空限制：1000ms/128M</h3><h3 id="数据规模："><a href="#数据规模：" class="headerlink" title="数据规模："></a>数据规模：</h3><p>对于30%的数据：N&lt;=10，M&lt;=10</p>
-<p>对于70%的数据：N&lt;=1000，M&lt;=1000</p>
-<p>对于100%的数据：N&lt;=100000，M&lt;=100000</p>
-<p>样例说明：</p>
-<p>初始状态下，五个小根堆分别为:{1}、{5}、{4}、{2}、{3}。</p>
-<p>第一次操作，将第1个数所在的小根堆与第5个数所在的小根堆合并，故变为四个小根堆：{1,3}、{5}、{4}、{2}。</p>
-<p>第二次操作，将第2个数所在的小根堆与第5个数所在的小根堆合并，故变为三个小根堆：{1,3,5}、{4}、{2}。</p>
-<p>第三次操作，将第2个数所在的小根堆的最小值输出并删除，故输出1，第一个数被删除，三个小根堆为：{3,5}、{4}、{2}。</p>
-<p>第四次操作，将第4个数所在的小根堆与第2个数所在的小根堆合并，故变为两个小根堆：{2,3,5}、{4}。</p>
-<p>第五次操作，将第2个数所在的小根堆的最小值输出并删除，故输出2，第四个数被删除，两个小根堆为：{3,5}、{4}。</p>
-<p>故输出依次为1、2。</p>
-<hr>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>左偏树模板，不多说了，直接上代码。</p>
-<hr>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Code by muq</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> inf 999999999</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> io0 ios::sync_with_stdio(0)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">muq</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    freopen(<span class="string">"muq.in.txt"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> fa[maxn], n, m;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;<span class="comment">//并查集</span></span><br><span class="line">	<span class="keyword">return</span> (fa[x] == x) ? x : (fa[x] = find(fa[x]));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> LPT &#123;</span><br><span class="line">	<span class="keyword">int</span> val[maxn], l[maxn], r[maxn], dis[maxn] = &#123;<span class="number">-1</span>&#125;;<span class="comment">//val[]表示每个点的权值，l[]/r[]表一个点的左/右儿子，dis[]表示某个点到它子树中的某个没有两个儿子的点的最短距离</span></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(!x <span class="keyword">or</span> !y)<span class="comment">//如果有一个儿子没有就返回另一个，或两个都没有就返回空</span></span><br><span class="line">			<span class="keyword">return</span> x + y;</span><br><span class="line">		<span class="keyword">if</span>(val[x] &gt; val[y] <span class="keyword">or</span> val[x] == val[y] <span class="keyword">and</span> x &gt; y)<span class="comment">//由于这里是小根堆，为了方便，我们通常默认左边的堆要小于右边的堆，故将大一点的堆换到右边来进行操作（大根堆反之）</span></span><br><span class="line">			swap(x, y);</span><br><span class="line">		r[x] = merge(r[x], y);<span class="comment">//将右子树与右边的堆合并</span></span><br><span class="line">		fa[r[x]] = x;</span><br><span class="line">		<span class="keyword">if</span>(dis[l[x]] &lt; dis[r[x]])<span class="comment">//维护左偏树的左偏性质</span></span><br><span class="line">			swap(l[x], r[x]);</span><br><span class="line">		dis[x] = dis[r[x]] + <span class="number">1</span>;<span class="comment">//更新dis值</span></span><br><span class="line">		<span class="keyword">return</span> x;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> LPT;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Merge</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;<span class="comment">//合并两个堆</span></span><br><span class="line">	fa[x] = fa[y] = merge(x, y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">remove</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;<span class="comment">//删除权值最小的节点</span></span><br><span class="line">	val[x] = <span class="number">-1</span>;<span class="comment">//标记不存在</span></span><br><span class="line">	fa[l[x]] = l[x], fa[r[x]] = r[x];<span class="comment">//此节点的左右儿子与其子树成为两个独立的堆，故他们所属的对的根节点暂时为他们自己</span></span><br><span class="line">	fa[x] = merge(l[x], r[x]);<span class="comment">//重新合并左右儿子建成一个新的堆</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">	muq();</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;n, &amp;m);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;val[i]), fa[i] = i;</span><br><span class="line">	<span class="keyword">while</span>(m--) &#123;</span><br><span class="line">		<span class="keyword">int</span> type;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;type);</span><br><span class="line">		<span class="keyword">if</span>(type == <span class="number">1</span>) &#123;</span><br><span class="line">			<span class="keyword">int</span> x, y;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;x, &amp;y);</span><br><span class="line">			<span class="keyword">if</span>(val[x] == <span class="number">-1</span> <span class="keyword">or</span> val[y] == <span class="number">-1</span> <span class="keyword">or</span> x == y)<span class="comment">//节点不存在或为同一节点</span></span><br><span class="line">				<span class="keyword">continue</span>;</span><br><span class="line">			<span class="keyword">int</span> xx = find(x), yy = find(y);</span><br><span class="line">			<span class="keyword">if</span>(xx == yy)<span class="comment">//在同一个堆中</span></span><br><span class="line">				<span class="keyword">continue</span>;</span><br><span class="line">			Merge(xx, yy);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">int</span> x;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;x);</span><br><span class="line">			<span class="keyword">if</span>(val[x] == <span class="number">-1</span>) &#123;<span class="comment">//节点不存在</span></span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">"-1\n"</span>);</span><br><span class="line">				<span class="keyword">continue</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">int</span> xx = find(x);</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, val[xx]);</span><br><span class="line">			remove(xx);<span class="comment">//别忘记删点啦！</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+        
+          <a class="article-more-a" href="/2019/02/17/洛谷P3377-【模板】左偏树（可并堆）/#more">more >></a>
+        
       
 
       
@@ -770,6 +744,14 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">AC自动机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">分块</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">高斯消元</a>
               </li>
              
@@ -778,19 +760,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分块</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">线段树</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">搜索</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">AC自动机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -818,10 +792,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">莫队</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">莫比乌斯反演</a>
               </li>
              
@@ -831,6 +801,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">最大流</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">莫队</a>
               </li>
              
               <li class="article-tag-list-item">
