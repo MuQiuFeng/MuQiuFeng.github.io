@@ -148,6 +148,96 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-POJ1014-Dividing" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/20/POJ1014-Dividing/">POJ1014 Dividing</a>
+    </h1>
+  
+
+        
+        <a href="/2019/02/20/POJ1014-Dividing/" class="archive-article-date">
+  	<time datetime="2019-02-20T12:51:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://poj.org/problem?id=1014" target="_blank" rel="noopener">POJ1014 Dividing</a></p>
+<h3 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h3><p>有分别价值为1,2,3,4,5,6的6种物品，输入6个数字，表示相应价值的物品的数量，问一下能不能将物品分成两份，是两份的总价值相等，其中一个物品不能切开，只能分给其中的某一方，当输入六个0是（即没有物品了），这程序结束，总物品的总个数不超过20000</p>
+<h3 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h3><p>6个数，表示六种物品的数量。</p>
+<h3 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h3><p>每个测试用例占三行：<br>第一行： Collection #k: k为第几组测试用例<br>第二行：是否能分（具体形式见用例）</p>
+        
+          <a class="article-more-a" href="/2019/02/20/POJ1014-Dividing/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">DP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/DP50题//" class="article-tag-list-link color1">DP50题</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/02/20/POJ1014-Dividing/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-洛谷P3377-【模板】左偏树（可并堆）" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -536,96 +626,6 @@
 
 
   
-    <article id="post-Ural1269-Obscene-words-filter" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/15/Ural1269-Obscene-words-filter/">Ural1269 Obscene words filter</a>
-    </h1>
-  
-
-        
-        <a href="/2019/02/15/Ural1269-Obscene-words-filter/" class="archive-article-date">
-  	<time datetime="2019-02-15T00:15:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="http://acm.timus.ru/problem.aspx?space=1&amp;num=1269" target="_blank" rel="noopener">Ural1269 Obscene words filter</a></p>
-<h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>There is a problem to check messages of web-board visitors for the obscene words. Your elder colleagues commit this problem to you. You are to write a program, which check if there is at least one obscene word from the given list in the given text as a substring.</p>
-<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>The first line consists of integer $n$ $(1 ≤ n ≤ 10000)$ — an amount of words. The next $n$ lines contain the list of words that we can’t allow to use in our well-educated society. A word may contain any symbol but the ones with codes 0, 10 and 13. The length of each word doesn’t exceed $10000$ symbols. The total list of words doesn’t exceed $100 KB$. Then there is an integer $m$ — the number of lines of the text. A size of the text doesn’t exceed $900 KB$.</p>
-<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>the number of line and the number of position separated with a space, where an obscene word occurs for the first time. If there are no obscene words, output <strong>“Passed”</strong>.<br>$\because \therefore \exists \forall \leq \geq \neq \angle 30^ \circ $<br>
-        
-          <a class="article-more-a" href="/2019/02/15/Ural1269-Obscene-words-filter/#more">more >></a>
-        
-      
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">AC自动机</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Aho-Corasick-automaton//" class="article-tag-list-link color3">Aho-Corasick automaton</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/02/15/Ural1269-Obscene-words-filter/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -748,10 +748,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分块</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">高斯消元</a>
               </li>
              
@@ -776,6 +772,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">分块</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">后缀数组</a>
               </li>
              
@@ -792,15 +792,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">莫比乌斯反演</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">网络流</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">最大流</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">莫比乌斯反演</a>
               </li>
              
               <li class="article-tag-list-item">
