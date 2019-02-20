@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>About | 湫风酱的小屋</title>
+  <title>POJ1015 Jury Compromise | 湫风酱的小屋</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="My name is WZR nick MuQiuFeng or Muq NOIP 2019 rp++（笑 个人信息男 2003年 生于湖南现就读于长沙 雅礼中学 （2018届）高一">
-<meta property="og:type" content="website">
-<meta property="og:title" content="About">
-<meta property="og:url" content="http://yoursite.com/about/index.html">
+  <meta name="description" content="POJ1015 Jury Compromise 题目大意在一个遥远的国家，一名嫌犯是否有罪需要由陪审团决定。陪审团是由法官从公民中挑选的。法官先随机挑选N个人作为陪审团的候选人，然后再从这$N$个人中按照下列方法选出$M$人组成陪审团。 首先，参与诉讼的控方和辩方会给所有候选人打分，分值在$0$到$20$之间。第$i$个人的得分记为$a[i]$和$b[i]$。为了公平起见，法官选出的$M$个人必须">
+<meta name="keywords" content="DP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="POJ1015 Jury Compromise">
+<meta property="og:url" content="http://yoursite.com/2019/02/20/POJ1015-Jury-Compromise/index.html">
 <meta property="og:site_name" content="湫风酱的小屋">
-<meta property="og:description" content="My name is WZR nick MuQiuFeng or Muq NOIP 2019 rp++（笑 个人信息男 2003年 生于湖南现就读于长沙 雅礼中学 （2018届）高一">
+<meta property="og:description" content="POJ1015 Jury Compromise 题目大意在一个遥远的国家，一名嫌犯是否有罪需要由陪审团决定。陪审团是由法官从公民中挑选的。法官先随机挑选N个人作为陪审团的候选人，然后再从这$N$个人中按照下列方法选出$M$人组成陪审团。 首先，参与诉讼的控方和辩方会给所有候选人打分，分值在$0$到$20$之间。第$i$个人的得分记为$a[i]$和$b[i]$。为了公平起见，法官选出的$M$个人必须">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-02T01:46:42.922Z">
+<meta property="og:updated_time" content="2019-02-20T13:24:49.448Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="About">
-<meta name="twitter:description" content="My name is WZR nick MuQiuFeng or Muq NOIP 2019 rp++（笑 个人信息男 2003年 生于湖南现就读于长沙 雅礼中学 （2018届）高一">
+<meta name="twitter:title" content="POJ1015 Jury Compromise">
+<meta name="twitter:description" content="POJ1015 Jury Compromise 题目大意在一个遥远的国家，一名嫌犯是否有罪需要由陪审团决定。陪审团是由法官从公民中挑选的。法官先随机挑选N个人作为陪审团的候选人，然后再从这$N$个人中按照下列方法选出$M$人组成陪审团。 首先，参与诉讼的控方和辩方会给所有候选人打分，分值在$0$到$20$之间。第$i$个人的得分记为$a[i]$和$b[i]$。为了公平起见，法官选出的$M$个人必须">
   
     <link rel="alternative" href="/atom.xml" title="湫风酱的小屋" type="application/atom+xml">
   
@@ -150,30 +151,43 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope="" itemprop="blogPost">
+            <article id="post-POJ1015-Jury-Compromise" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      About
+      POJ1015 Jury Compromise
     </h1>
   
 
         
-        <a href="/about/index.html" class="archive-article-date">
-  	<time datetime="2018-12-02T01:46:42.922Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-02</time>
+        <a href="/2019/02/20/POJ1015-Jury-Compromise/" class="archive-article-date">
+  	<time datetime="2019-02-20T13:05:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>My name is WZR nick <strong>MuQiuFeng</strong> or <strong>Muq</strong></p>
-<p><strong>NOIP 2019 rp++（笑</strong></p>
-<h3 id="个人信息"><a href="#个人信息" class="headerlink" title="个人信息"></a>个人信息</h3><p>男 2003年 生于湖南<br>现就读于长沙 雅礼中学 （2018届）高一</p>
-
+        <p><a href="http://poj.org/problem?id=1015" target="_blank" rel="noopener">POJ1015 Jury Compromise</a></p>
+<h3 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h3><p>在一个遥远的国家，一名嫌犯是否有罪需要由陪审团决定。陪审团是由法官从公民中挑选的。法官先随机挑选N个人作为陪审团的候选人，然后再从这$N$个人中按照下列方法选出$M$人组成陪审团。</p>
+<p>首先，参与诉讼的控方和辩方会给所有候选人打分，分值在$0$到$20$之间。第$i$个人的得分记为$a[i]$和$b[i]$。为了公平起见，法官选出的$M$个人必须满足：辩方总分$D$和控方总分$P$的差的绝对值$|D-P|$最小。如果选择方法不唯一，那么再从中选择辩控双方总分之和$D+P$最大的方案。</p>
+<p>求最终的陪审团获得的辩方总分$D$，控方总分$P$，以及陪审团人选的的编号（方案）。</p>
+<a id="more"></a>
+<h3 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h3><p>多组数据，每组数据第一行为$n$，$m$，后面描述了每个人的辩控值，当$n=m=0$时代表输入结束。</p>
+<h3 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h3><p>选取符合条件的最优$m$个候选人后，要求输出这$m$个人的辩方总值$D$和控方总值$P$，并升序输出他们的编号。</p>
+<h3 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h3><blockquote>
+<p>4 2<br>1 2<br>2 3<br>4 1<br>6 2<br>0 0</p>
+</blockquote>
+<h3 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h3><blockquote>
+<p>Jury #1<br>Best jury has value 6 for prosecution and value 4 for defence:<br>2 3</p>
+</blockquote>
+<hr>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>为叙述问题方便，现将任一选择方案中，辩方总分和控方总分<br>之差简称为“辩控差”，辩方总分和控方总分之和称为“辩控和”。<br>第$i$个候选人的辩方总分和控方总分之差记为$V(i)$，辩方总分和控<br>方总分之和记为$S(i)$。现用$f(j, k)$表示，取$j$个候选人，使其辩<br>控差为$k$的所有方案中，辩控和最大的那个方案（该方案称为“方<br>案$f(j, k)$”）的辩控和。并且，我们还规定，如果没法选$j$个人，<br>使其辩控差为$k$，那么$f(j, k)$的值就为$-1$，也称方案$f(j, k)$不可行。<br>本题是要求选出$m$个人，那么，如果对$k$的所有可能的取值，求<br>出了所有的$f(m, k) (-20×m≤ k ≤ 20×m)$，那么陪审团方案<br>自然就很容易找到了。</p>
+<p>问题的关键是建立递推关系。需要从哪些已知条件出发，<br>才能求出$f(j, k)$呢？显然，方案$f(j, k)$是由某个可行的方案$f(j-1, x)<br>(-20×m ≤ x ≤ 20×m)$演化而来的。可行方案$f(j-1, x)$能演化成<br>方案$f(j, k)$的必要条件是：存在某个候选人$i$，$i$在方案$f(j-1, x)$中<br>没有被选上，且$x+V(i) = k$。在所有满足该必要条件的$f(j-1, x)$中，<br>选出$f(j-1, x) + S(i)$的值最大的那个，那么方案$f(j-1, x)$再加上候选人$i$，<br>就演变成了方案$f(j, k)$。这中间需要将一个方案都选了哪些人都记录下来。<br>不妨将方案$f(j, k)$中最后选的那个候选人的编号，记在二维数组的<br>元素$path[j][k]$中。那么方案$f(j, k)$的倒数第二个人选的编号，<br>就是$path[j-1][k-V[path[j][k]]$。假定最后算出了解方案的辩控差是k，<br>那么从$path[m][k]$出发，就能顺藤摸瓜一步步求出所有被选中的候选人。<br>初始条件，只能确定$f(0, 0) = 0$。由此出发，一步步自底向上递推，<br>就能求出所有的可行方案$f(m, k)(-20×m ≤ k ≤ 20×m)$。实际解题<br>的时候，会用一个二维数组$f$来存放$f(j, k)$的值。而且，由于题目中辩<br>控差的值$k$可以为负数，而程序中数租下标不能为负数，所以，在程序中<br>不妨将辩控差的值都加上$400$，以免下标为负数导致出错，即题目描述中，</p>
+<h2 id="如果辩控差为-0-，则在程序中辩控差为-400-。"><a href="#如果辩控差为-0-，则在程序中辩控差为-400-。" class="headerlink" title="如果辩控差为$0$，则在程序中辩控差为$400$。"></a>如果辩控差为$0$，则在程序中辩控差为$400$。</h2><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Code by muq</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ls c[x][0]</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rs c[x][1]</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> inf 999999999</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> io0 ios::sync_with_stdio(0)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">muq</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    freopen(<span class="string">"muq.in.txt"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1000</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxm = <span class="number">30</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> kase, n, m;</span><br><span class="line"><span class="keyword">int</span> dp[maxn][maxn], path[maxn][maxn];</span><br><span class="line"><span class="keyword">int</span> d[maxn], p[maxn], ans[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">	muq();</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;n, &amp;m)) &#123;</span><br><span class="line">		<span class="keyword">if</span>(!n <span class="keyword">and</span> !m)</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		++kase;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;p[i], &amp;d[i]);</span><br><span class="line">		<span class="built_in">memset</span>(dp, <span class="number">-1</span>, <span class="keyword">sizeof</span>(dp));</span><br><span class="line">		<span class="built_in">memset</span>(path, <span class="number">0</span>, <span class="keyword">sizeof</span>(path));</span><br><span class="line">		dp[<span class="number">0</span>][<span class="number">20</span> * m] = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; ++i)</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= <span class="number">40</span> * m; ++j)</span><br><span class="line">				<span class="keyword">if</span>(dp[i][j] &gt;= <span class="number">0</span>)</span><br><span class="line">					<span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">1</span>; k &lt;= n; ++k) &#123;</span><br><span class="line">						<span class="keyword">if</span>(dp[i][j] + p[k] + d[k] &gt; dp[i + <span class="number">1</span>][j + p[k] - d[k]]) &#123;</span><br><span class="line">							<span class="keyword">int</span> nowi = i, nowj = j;</span><br><span class="line">							<span class="keyword">while</span>(path[nowi][nowj] != k <span class="keyword">and</span> nowi) &#123;</span><br><span class="line">								nowj += (d[path[nowi][nowj]] - p[path[nowi][nowj]]);</span><br><span class="line">								--nowi;</span><br><span class="line">							&#125;</span><br><span class="line">							<span class="keyword">if</span>(!nowi) &#123;</span><br><span class="line">								dp[i + <span class="number">1</span>][j + p[k] - d[k]] = dp[i][j] + p[k] + d[k];</span><br><span class="line">								path[i + <span class="number">1</span>][j + p[k] - d[k]] = k;</span><br><span class="line">							&#125;</span><br><span class="line">						&#125;</span><br><span class="line">					&#125;</span><br><span class="line">		<span class="keyword">int</span> x = m * <span class="number">20</span>, y = <span class="number">0</span>, k;</span><br><span class="line">		<span class="keyword">while</span>(dp[m][x + y] &lt; <span class="number">0</span> <span class="keyword">and</span> dp[m][x - y] &lt; <span class="number">0</span>)</span><br><span class="line">			++y;</span><br><span class="line">		k = (dp[m][x + y] &gt; dp[m][x - y]) ? x + y : x - y;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"Jury #%d\nBest jury has value %d for prosecution and value %d for defence:\n"</span>, kase, (k - m * <span class="number">20</span> + dp[m][k]) / <span class="number">2</span>, (dp[m][k] - k + m * <span class="number">20</span>) / <span class="number">2</span>);</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; ++i) &#123;</span><br><span class="line">			ans[i] = path[m - i + <span class="number">1</span>][k];</span><br><span class="line">			k -= p[ans[i]] - d[ans[i]];</span><br><span class="line">		&#125;</span><br><span class="line">		sort(ans + <span class="number">1</span>, ans + m + <span class="number">1</span>);</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; ++i)</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">" %d"</span>, ans[i]);<span class="comment">//注意格式，poj上是每个数前要空格，UVA第一个数前不要，其他oj我不知道</span></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"\n\n"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -202,7 +216,29 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">DP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/DP50题//" class="article-tag-list-link color1">DP50题</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -252,7 +288,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/about/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/02/20/POJ1015-Jury-Compromise/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -264,6 +300,16 @@
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/2019/02/20/POJ1014-Dividing/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">POJ1014 Dividing</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -285,8 +331,8 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#个人信息"><span class="toc-number">1.</span> <span class="toc-text">个人信息</span></a></li></ol>
-                    </div>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目大意"><span class="toc-number">1.</span> <span class="toc-text">题目大意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#输入"><span class="toc-number">2.</span> <span class="toc-text">输入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#输出"><span class="toc-number">3.</span> <span class="toc-text">输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#样例输入"><span class="toc-number">4.</span> <span class="toc-text">样例输入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#样例输出"><span class="toc-number">5.</span> <span class="toc-text">样例输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">6.</span> <span class="toc-text">思路</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#如果辩控差为-0-，则在程序中辩控差为-400-。"><span class="toc-number"></span> <span class="toc-text">如果辩控差为$0$，则在程序中辩控差为$400$。</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#代码"><span class="toc-number">1.</span> <span class="toc-text">代码</span></a></li></ol>
+                    </li></div>
                 </span>
             </div>
         </div>
@@ -327,7 +373,7 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
